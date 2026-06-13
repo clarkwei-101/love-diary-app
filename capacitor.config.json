@@ -1,0 +1,29 @@
+{
+  "appId": "com.lovediary.app",
+  "appName": "LoveDiary",
+  "webDir": "www",
+  "server": {
+    "androidScheme": "https"
+  },
+  "plugins": {
+    "SplashScreen": {
+      "launchShowDuration": 2000,
+      "backgroundColor": "#FF8FB1",
+      "showSpinner": false
+    },
+    "StatusBar": {
+      "style": "LIGHT",
+      "backgroundColor": "#FF8FB1"
+    }
+  },
+  "ios": {
+    "contentInset": "automatic",
+    "backgroundColor": "#FF8FB1",
+    "allowsLinkPreview": false,
+    "scrollEnabled": false
+  },
+  "android": {
+    "backgroundColor": "#FF8FB1",
+    "allowMixedContent": true
+  }
+}

@@ -1,0 +1,58 @@
+# 背景音乐配置说明
+
+## 使用方法
+
+### 方式一：放置本地音乐文件（推荐）
+
+将你的 MP3 音乐文件放入本目录，推荐文件：
+
+```
+audio/
+  爱情讯息.mp3    # 敦静 - 爱情讯息（歌词版）
+  有我呢.mp3      # 敦静 - 有我呢
+  # 可添加更多音乐文件
+```
+
+**获取方式：**
+1. 网易云音乐 - 搜索歌曲 → 下载（需要VIP可尝试灰色歌曲渠道）
+2. QQ音乐 - 类似方式
+3. 酷狗音乐 - 类似方式
+4. YouTube Music - 音频提取
+5. Spotify - 下载后转换格式
+
+### 方式二：使用公网 CDN URL（高级用户）
+
+如果你有自己的音乐 CDN 或对象存储（如七牛云、阿里云OSS、腾讯COS、Cloudflare R2 等），可以在 `js/app.js` 中配置外部 URL：
+
+```javascript
+// 打开 js/app.js，找到 BG_MUSIC_TRACKS 区域，添加：
+const BG_MUSIC_TRACKS = [
+  {
+    name: '爱情讯息',
+    artist: '敦静',
+    src: 'https://your-cdn.example.com/music/爱情讯息.mp3'
+  },
+  {
+    name: '有我呢',
+    artist: '敦静',
+    src: 'https://your-cdn.example.com/music/有我呢.mp3'
+  }
+];
+```
+
+### 方式三：使用 Vercel Blob / 上传（适合 Vercel 部署）
+
+将音乐文件放入项目根目录 `public/audio/` 目录（如果存在），然后在 `js/app.js` 中配置相对路径。
+
+## 技术说明
+
+- 支持格式：MP3、WAV、OGG、AAC、M4A
+- 浏览器自动播放策略：部分浏览器需要用户交互后才能播放背景音乐
+- 音乐控制按钮在右下角悬浮，点击可打开/关闭音乐
+- 音乐文件过大（>10MB）会影响加载速度，建议压缩或使用 CDN
+
+## 注意事项
+
+- 本地音乐文件保存在浏览器 localStorage 中，存储空间有限（通常约5-10MB）
+- 建议使用 128kbps-192kbps 的 MP3 文件，平衡音质与大小
+- 如果 audio/ 目录为空，应用会自动切换到仅用户上传模式

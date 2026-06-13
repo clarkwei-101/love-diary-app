@@ -1,0 +1,151 @@
+【年度回顾完成后显示的生日祝福特效】
+
+## 特效来源
+将Python tkinter生日特效转换为Web版本，在恋爱App年度回顾完成后自动播放。
+
+## 特效内容（温馨话语清单）
+```javascript
+const TIPS = [
+  '多喝水哦~', '保持微笑呀', '每天都要快快乐乐！',
+  '记得吃我给你买的水果和零食', 
+  '吾妻尚年幼 怜语慰卿卿（熙熙）', 
+  '公主无臣仍是龙凤 家妻无我恐成枯骨', 
+  '想你了啦！！',
+  '之后一定要办一个属于你的无人机表演', 
+  '拯救你多少次都行', 
+  '毕竟等我了9个月的答复 舍不得让你再等啦',
+  '就说你容易忘记毕竟你可是富二代 军三代 官二代的大夫人', 
+  '別又背著我偷偷打遊戲喔', 
+  '有我在 没意外',
+  '别熬夜', 
+  '忒忒（小狗）喜欢你', 
+  '圣诞快乐！！',
+  '爱你 比昨天少一点 比明天多一点', 
+  '喂喂喂 毕竟你可是魏夫人', 
+  '此心已安，因为是你💝和你的春夏秋冬就是最完美的收益🎊',
+  '行路不易，还好有你。💖和你在一起是我最棒的投资～🎉',
+  '今天也要开心哦', 
+  '泡泡要抱抱！！', 
+  '一定有时候要笔直的出拳，比如我现在正在想',
+  'call我呀',
+  '说到喜欢 我从9月份就开始做局啦！！当时了解熙熙没有很多朋友 我就说我来做你的第一位朋友的时候～我就知道你会很感动～虽然看起来充满了算计和不道德 但还是想让你知道我到没那么好人',
+  '正所谓爱就是让就是让高傲者低头 自卑者勇敢'
+];
+
+const BG_COLORS = [
+  'lightpink', 'skyblue', 'lightgreen', 'lavender',
+  'lightyellow', 'plum', 'coral', 'bisque',
+  'aquamarine', 'mistyrose', 'honeydew',
+  'lavenderblush', 'oldlace', 'lightcyan', 'peachpuff',
+  'lightsteelblue', 'khaki', 'navajowhite'
+];
+```
+
+## 动画流程（严格按顺序）
+
+### 阶段1：爱心阵型显示（1.5秒）
+- 生成96个div元素
+- 使用心形公式排列：
+  ```javascript
+  // 心形参数方程
+  x = 16 * sin(t)^3
+  y = 13*cos(t) - 5*cos(2t) - 2*cos(3t) - cos(4t)
+  // t 从 0 到 2π，96个点均匀分布
+  ```
+- 每个div尺寸：280x80px
+- 随机背景色（从BG_COLORS选）
+- 随机显示一条TIPS文字
+- 添加出现动画（scale从0到1，带弹性效果）
+
+### 阶段2：汇聚到中心（动画1秒）
+- 所有爱心div同时向屏幕中心移动
+- 使用CSS transition或Web Animations API
+- 移动完成后关闭所有爱心div
+
+### 阶段3：顺序显示所有提示（每个500ms）
+- 在屏幕中心位置
+- 按随机顺序显示所有TIPS（不重复）
+- 每个显示500ms后消失，显示下一个
+- 添加淡入淡出动画
+
+### 阶段4：随机位置弹出（持续）
+- 在屏幕随机位置弹出div
+- 间隔400ms
+- 显示400ms后自动消失
+- 总共弹出约104个（与爱心96个合计200个）
+
+## 技术要求
+
+### HTML结构
+```html
+<div id="birthday-effect" class="effect-overlay">
+  <!-- 爱心阵型容器 -->
+  <div class="heart-container"></div>
+  <!-- 中心显示容器 -->
+  <div class="center-container"></div>
+  <!-- 随机弹出容器 -->
+  <div class="random-container"></div>
+</div>
+```
+
+### CSS样式
+- 全屏覆盖（position: fixed, z-index: 9999）
+- 半透明黑色背景（rgba(0,0,0,0.3)）
+- div样式：
+  - width: 280px, height: 80px
+  - border-radius: 12px
+  - box-shadow: 0 4px 20px rgba(0,0,0,0.15)
+  - font-size: 14px, font-weight: bold
+  - text-align: center
+  - padding: 10px
+  - position: absolute
+
+### 动画效果
+```css
+/* 出现动画 */
+@keyframes popIn {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* 消失动画 */
+@keyframes fadeOut {
+  to { transform: scale(0.8); opacity: 0; }
+}
+
+/* 移动动画 */
+.move-to-center {
+  transition: all 1s ease-in-out;
+}
+```
+
+## 触发方式
+在年度回顾页面最后添加：
+```javascript
+// 年度回顾结束时调用
+function showBirthdayEffect() {
+  const effect = new BirthdayEffect();
+  effect.start();
+}
+
+// 添加"播放祝福特效"按钮
+// 点击后播放完整动画
+```
+
+## 额外要求
+1. 添加跳过按钮（右上角X）
+2. 动画完成后自动关闭overlay
+3. 支持点击任意位置提前结束
+4. 添加背景音乐（可选）
+5. 在移动端适配（缩小div尺寸为200x60px）
+
+## 完成标准
+- [ ] 爱心阵型正确显示（数学公式准确）
+- [ ] 汇聚动画流畅
+- [ ] 所有TIPS文字都显示且不重复
+- [ ] 随机弹出效果自然
+- [ ] 可以正常关闭
+- [ ] 无性能问题（60fps）
+
+完成后报告动画时长和实现难点。

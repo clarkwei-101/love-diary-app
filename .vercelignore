@@ -1,0 +1,21 @@
+node_modules/
+.DS_Store
+*.log
+*.bak
+*.swp
+*.swo
+audio/*.mp3
+audio/*.wav
+audio/*.ogg
+audio/*.m4a
+audio/*.aac
+www/
+ios/
+android/
+. capacitor/
+dist/
+node_modules/
+.env
+.env.local
+*.pem
+*.key

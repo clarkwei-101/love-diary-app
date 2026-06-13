@@ -1,0 +1,19 @@
+{
+  "name": "love-diary-app",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "serve": "serve -l 5174",
+    "serve:3001": "serve -l 3001",
+    "serve:8080": "serve -l 8080"
+  },
+  "devDependencies": {
+    "serve": "^14.2.0"
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.2.0",
+    "@capacitor/cli": "^8.2.0",
+    "@capacitor/core": "^8.2.0",
+    "@capacitor/ios": "^8.2.0"
+  }
+}

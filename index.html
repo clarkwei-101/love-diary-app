@@ -1,0 +1,1905 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#FF8FB1">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>恋爱日记</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%20180%20180%22%3E%3Cdefs%3E%3ClinearGradient%20id%3D%22g%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23FF8FB1%22/%3E%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23B76E9F%22/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect%20width%3D%22180%22%20height%3D%22180%22%20rx%3D%2245%22%20fill%3D%22url%28%23g%29%22/%3E%3Cpath%20d%3D%22M90%20140s-40-22-60-46C17%2072%2020%2048%2042%2038c18-8%2035-2%2051%2014%2016-16%2033-22%2051-14%2022%2010%2025%2034%2012%2056-20%2024-60%2046-60%2046z%22%20fill%3D%22white%22%20fill-opacity%3D%220.9%22/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/svg+xml" href="assets/icons.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet"></noscript>
+</head>
+<body>
+    <!-- SVG 图标库 -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none;">
+        <symbol id="mood-sad" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#FF6B6B" stroke-width="1.5"/><circle cx="8" cy="10" r="1.5" fill="#FF6B6B"/><circle cx="16" cy="10" r="1.5" fill="#FF6B6B"/><path d="M8 15c2 2 6 2 8 0" fill="none" stroke="#FF6B6B" stroke-width="1.5" stroke-linecap="round"/></symbol>
+        <symbol id="mood-angry" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#E74C3C" stroke-width="1.5"/><line x1="6" y1="7" x2="10" y2="10" stroke="#E74C3C" stroke-width="1.5" stroke-linecap="round"/><line x1="14" y1="7" x2="18" y2="10" stroke="#E74C3C" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="11" r="1" fill="#E74C3C"/><circle cx="16" cy="11" r="1" fill="#E74C3C"/><path d="M8 17c2-2 6-2 8 0" fill="none" stroke="#E74C3C" stroke-width="1.5" stroke-linecap="round"/></symbol>
+        <symbol id="mood-sleepy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#95A5A6" stroke-width="1.5"/><path d="M7 10h3" stroke="#95A5A6" stroke-width="1.5" stroke-linecap="round"/><path d="M14 10h3" stroke="#95A5A6" stroke-width="1.5" stroke-linecap="round"/><path d="M8 16c1.5 1 4.5 1 8 0" fill="none" stroke="#95A5A6" stroke-width="1.5" stroke-linecap="round"/></symbol>
+        <symbol id="mood-inlove" viewBox="0 0 24 24"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z" fill="#FF6B8A"/></symbol>
+        <symbol id="mood-neutral" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#BDC3C7" stroke-width="1.5"/><circle cx="8" cy="10" r="1" fill="#BDC3C7"/><circle cx="16" cy="10" r="1" fill="#BDC3C7"/><line x1="8" y1="15" x2="16" y2="15" stroke="#BDC3C7" stroke-width="1.5" stroke-linecap="round"/></symbol>
+        <symbol id="mood-thinking" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#9B59B6" stroke-width="1.5"/><circle cx="8" cy="10" r="1" fill="#9B59B6"/><circle cx="16" cy="10" r="1" fill="#9B59B6"/><path d="M9 16l1.5-1 1.5 1" fill="none" stroke="#9B59B6" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+        <symbol id="mood-happy" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="none" stroke="#F1C40F" stroke-width="1.5"/><circle cx="8" cy="9" r="1.5" fill="#F1C40F"/><circle cx="16" cy="9" r="1.5" fill="#F1C40F"/><path d="M8 14c2 3 6 3 8 0" fill="none" stroke="#F1C40F" stroke-width="1.5" stroke-linecap="round"/></symbol>
+    </svg>
+
+    <!-- 功能图标库 -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none;" id="icons-sprite">
+        <symbol id="ico-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5L12 3l9 6.5V20a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V9.5z"/><polyline points="9 21 9 10 15 10 15 21"/></symbol>
+        <symbol id="ico-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></symbol>
+        <symbol id="ico-diary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.121 2.121 0 0 1 3 3L7 19l-4 1 1-4L16.5 3.5z"/></symbol>
+        <symbol id="ico-anniversary" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></symbol>
+        <symbol id="ico-game" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><line x1="6" y1="12" x2="10" y2="12"/><line x1="8" y1="10" x2="8" y2="14"/><circle cx="16" cy="10" r="1" fill="currentColor"/><circle cx="18" cy="13" r="1" fill="currentColor"/></symbol>
+        <symbol id="ico-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></symbol>
+        <symbol id="ico-photos" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></symbol>
+        <symbol id="ico-bill" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/><circle cx="18" cy="16" r="1.5" fill="currentColor" stroke="none"/></symbol>
+        <symbol id="ico-wish" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+        <symbol id="ico-stats" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></symbol>
+        <symbol id="ico-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></symbol>
+        <symbol id="ico-music" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18V5l12-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="18" cy="16" r="3"/></symbol>
+        <symbol id="ico-location" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+        <symbol id="ico-settings" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></symbol>
+
+        <!-- 空状态插画 SVG -->
+        <!-- 日记空状态：展开的日记本 + 心形装饰 -->
+        <symbol id="empty-diary" viewBox="0 0 120 100">
+            <rect x="20" y="15" width="55" height="70" rx="6" fill="none" stroke="#FF8FB1" stroke-width="2.5"/>
+            <rect x="30" y="25" width="35" height="4" rx="2" fill="#FF8FB1" opacity="0.4"/>
+            <rect x="30" y="34" width="28" height="4" rx="2" fill="#FF8FB1" opacity="0.4"/>
+            <rect x="30" y="43" width="32" height="4" rx="2" fill="#FF8FB1" opacity="0.4"/>
+            <rect x="30" y="52" width="20" height="4" rx="2" fill="#FF8FB1" opacity="0.4"/>
+            <path d="M75 55 C 75 38, 88 28, 88 28 C 88 28, 101 38, 101 55 C 101 68, 88 80, 88 80 C 88 80, 75 68, 75 55Z" fill="#FF8FB1" opacity="0.25"/>
+            <circle cx="100" cy="20" r="5" fill="#FF8FB1" opacity="0.3"/>
+            <circle cx="108" cy="35" r="3" fill="#FFB7C5" opacity="0.4"/>
+            <path d="M5 85 Q 15 70, 25 85 Q 35 100, 45 85 Q 55 70, 65 85" fill="none" stroke="#FF8FB1" stroke-width="1.5" opacity="0.3" stroke-linecap="round"/>
+        </symbol>
+
+        <!-- 纪念日空状态：日历 + 爱心标记 -->
+        <symbol id="empty-anniversary" viewBox="0 0 120 100">
+            <rect x="25" y="12" width="55" height="50" rx="6" fill="none" stroke="#FF8FB1" stroke-width="2.5"/>
+            <rect x="25" y="12" width="55" height="14" rx="6" fill="#FF8FB1" opacity="0.2"/>
+            <rect x="25" y="19" width="55" height="7" fill="#FF8FB1" opacity="0.2"/>
+            <line x1="25" y1="38" x2="80" y2="38" stroke="#FF8FB1" stroke-width="1.5" opacity="0.3"/>
+            <circle cx="38" cy="50" r="3" fill="#FF8FB1" opacity="0.3"/>
+            <circle cx="52" cy="50" r="3" fill="#FF8FB1" opacity="0.3"/>
+            <circle cx="66" cy="50" r="3" fill="#FF8FB1" opacity="0.5"/>
+            <circle cx="38" cy="62" r="3" fill="#FF8FB1" opacity="0.3"/>
+            <circle cx="52" cy="62" r="3" fill="#FF8FB1" opacity="0.3"/>
+            <circle cx="66" cy="62" r="3" fill="#FF8FB1" opacity="0.3"/>
+            <path d="M88 55 C 88 38, 101 28, 101 28 C 101 28, 114 38, 114 55 C 114 68, 101 80, 101 80 C 101 80, 88 68, 88 55Z" fill="#FF8FB1" opacity="0.25"/>
+            <path d="M85 20 L 88 15 L 91 20" fill="none" stroke="#FF8FB1" stroke-width="2" stroke-linecap="round"/>
+            <line x1="88" y1="15" x2="88" y2="12" stroke="#FF8FB1" stroke-width="2" stroke-linecap="round"/>
+        </symbol>
+
+        <!-- 相册空状态：照片框 + 爱心 -->
+        <symbol id="empty-photos" viewBox="0 0 120 100">
+            <rect x="18" y="18" width="55" height="42" rx="6" fill="none" stroke="#FF8FB1" stroke-width="2.5"/>
+            <circle cx="35" cy="34" r="5" fill="#FF8FB1" opacity="0.3"/>
+            <path d="M18 48 L 45 30 L 73 48" fill="none" stroke="#FF8FB1" stroke-width="1.5" opacity="0.4" stroke-linecap="round" stroke-linejoin="round"/>
+            <rect x="55" y="48" width="22" height="16" rx="3" fill="none" stroke="#FF8FB1" stroke-width="1.5" opacity="0.3"/>
+            <rect x="18" y="68" width="55" height="5" rx="2" fill="#FF8FB1" opacity="0.2"/>
+            <path d="M88 55 C 88 38, 101 28, 101 28 C 101 28, 114 38, 114 55 C 114 68, 101 80, 101 80 C 101 80, 88 68, 88 55Z" fill="#FF8FB1" opacity="0.25"/>
+            <circle cx="105" cy="18" r="4" fill="#FFB7C5" opacity="0.4"/>
+            <circle cx="112" cy="30" r="2.5" fill="#FF8FB1" opacity="0.3"/>
+        </symbol>
+
+        <!-- 账单空状态：钱包 + 爱心 -->
+        <symbol id="empty-bill" viewBox="0 0 120 100">
+            <rect x="22" y="25" width="55" height="42" rx="8" fill="none" stroke="#FF8FB1" stroke-width="2.5"/>
+            <rect x="22" y="25" width="55" height="14" rx="8" fill="#FF8FB1" opacity="0.2"/>
+            <line x1="22" y1="39" x2="77" y2="39" stroke="#FF8FB1" stroke-width="1.5" opacity="0.3"/>
+            <rect x="32" y="48" width="30" height="4" rx="2" fill="#FF8FB1" opacity="0.3"/>
+            <rect x="32" y="56" width="22" height="4" rx="2" fill="#FF8FB1" opacity="0.2"/>
+            <path d="M88 55 C 88 38, 101 28, 101 28 C 101 28, 114 38, 114 55 C 114 68, 101 80, 101 80 C 101 80, 88 68, 88 55Z" fill="#FF8FB1" opacity="0.25"/>
+            <path d="M105 20 Q 112 12, 118 20 Q 112 18, 105 20" fill="#FF8FB1" opacity="0.3"/>
+            <path d="M100 14 Q 108 6, 115 14" fill="none" stroke="#FF8FB1" stroke-width="1.5" opacity="0.3" stroke-linecap="round"/>
+        </symbol>
+
+        <!-- 愿望空状态：星星 + 爱心 -->
+        <symbol id="empty-wish" viewBox="0 0 120 100">
+            <polygon points="60,8 65,25 83,25 69,36 74,53 60,43 46,53 51,36 37,25 55,25" fill="#FF8FB1" opacity="0.3" stroke="#FF8FB1" stroke-width="1.5" stroke-linejoin="round"/>
+            <line x1="60" y1="8" x2="60" y2="3" stroke="#FF8FB1" stroke-width="1.5" opacity="0.4"/>
+            <line x1="83" y1="25" x2="87" y2="22" stroke="#FF8FB1" stroke-width="1.5" opacity="0.4"/>
+            <line x1="37" y1="25" x2="33" y2="22" stroke="#FF8FB1" stroke-width="1.5" opacity="0.4"/>
+            <circle cx="30" cy="65" r="12" fill="none" stroke="#FF8FB1" stroke-width="2" opacity="0.3"/>
+            <circle cx="30" cy="65" r="6" fill="#FF8FB1" opacity="0.2"/>
+            <circle cx="85" cy="72" r="8" fill="none" stroke="#FF8FB1" stroke-width="1.5" opacity="0.25"/>
+            <circle cx="85" cy="72" r="4" fill="#FF8FB1" opacity="0.15"/>
+            <path d="M92 42 C 92 35, 99 30, 99 30 C 99 30, 106 35, 106 42 C 106 49, 99 55, 99 55 C 99 55, 92 49, 92 42Z" fill="#FF8FB1" opacity="0.2"/>
+        </symbol>
+
+        <!-- 聊天空状态：对话气泡 + 爱心 -->
+        <symbol id="empty-chat" viewBox="0 0 120 100">
+            <path d="M15 20 H 75 A 10 10 0 0 1 85 30 V 55 A 10 10 0 0 1 75 65 H 45 L 25 80 V 65 H 15 A 10 10 0 0 1 5 55 V 30 A 10 10 0 0 1 15 20Z" fill="#FF8FB1" opacity="0.15" stroke="#FF8FB1" stroke-width="2"/>
+            <circle cx="25" cy="42" r="3" fill="#FF8FB1" opacity="0.5"/>
+            <circle cx="38" cy="42" r="3" fill="#FF8FB1" opacity="0.5"/>
+            <circle cx="51" cy="42" r="3" fill="#FF8FB1" opacity="0.5"/>
+            <path d="M88 55 C 88 38, 101 28, 101 28 C 101 28, 114 38, 114 55 C 114 68, 101 80, 101 80 C 101 80, 88 68, 88 55Z" fill="#FF8FB1" opacity="0.25"/>
+            <path d="M82 72 Q 88 65, 95 72" fill="none" stroke="#FF8FB1" stroke-width="1.5" opacity="0.3" stroke-linecap="round"/>
+        </symbol>
+
+        <!-- 统计数据空状态：图表框架 -->
+        <symbol id="empty-stats" viewBox="0 0 120 100">
+            <rect x="18" y="18" width="55" height="45" rx="6" fill="none" stroke="#FF8FB1" stroke-width="2" opacity="0.4"/>
+            <line x1="18" y1="38" x2="73" y2="38" stroke="#FF8FB1" stroke-width="1.5" opacity="0.3"/>
+            <line x1="18" y1="48" x2="73" y2="48" stroke="#FF8FB1" stroke-width="1.5" opacity="0.3"/>
+            <line x1="18" y1="58" x2="73" y2="58" stroke="#FF8FB1" stroke-width="1.5" opacity="0.3"/>
+            <line x1="38" y1="18" x2="38" y2="63" stroke="#FF8FB1" stroke-width="1.5" opacity="0.3"/>
+            <line x1="53" y1="18" x2="53" y2="63" stroke="#FF8FB1" stroke-width="1.5" opacity="0.3"/>
+            <path d="M88 55 C 88 38, 101 28, 101 28 C 101 28, 114 38, 114 55 C 114 68, 101 80, 101 80 C 101 80, 88 68, 88 55Z" fill="#FF8FB1" opacity="0.25"/>
+            <circle cx="105" cy="20" r="5" fill="#FFB7C5" opacity="0.3"/>
+            <circle cx="112" cy="32" r="3" fill="#FF8FB1" opacity="0.25"/>
+        </symbol>
+    </svg>
+
+    <!-- 气泡背景动画 -->
+    <div class="bubbles" id="bubbles" aria-hidden="true"></div>
+
+    <!-- 照片空间漂浮特效容器 -->
+    <div class="floating-photo-container" id="floating-photo-container" aria-hidden="true"></div>
+
+    <!-- 节日主题徽章 -->
+    <div id="holiday-badge" class="holiday-badge" style="display:none;"></div>
+
+    <!-- 音乐控制悬浮按钮 -->
+    <button class="music-control-btn-v2" id="music-control-btn" title="音乐控制" aria-label="音乐控制">
+        <svg class="icon icon-lg" style="color:white"><use href="#icon-music"></use></svg>
+    </button>
+
+    <!-- 音乐曲目切换浮层 -->
+    <div class="music-panel" id="music-panel">
+        <div class="music-panel-title">
+            <span style="display:flex;align-items:center;gap:8px;">
+                <svg class="icon icon-md" style="color:var(--primary-color)"><use href="#icon-music"></use></svg>
+                背景音乐
+            </span>
+            <button class="music-panel-close" id="music-panel-close" aria-label="关闭">
+                <svg class="icon icon-md"><use href="#icon-close"></use></svg>
+            </button>
+        </div>
+        <div class="music-volume-control">
+            <span class="volume-icon">
+                <svg class="icon icon-md"><use href="#icon-volume"></use></svg>
+            </span>
+            <input type="range" id="music-volume-slider" min="0" max="100" value="80" class="volume-slider">
+            <span class="volume-value" id="volume-value">80%</span>
+        </div>
+        <div id="music-track-list"></div>
+        <div class="music-panel-upload">
+            <label class="music-upload-label" style="display:flex;align-items:center;gap:8px;">
+                <svg class="icon icon-md" style="color:var(--primary-color)"><use href="#icon-plus"></use></svg>
+                上传本地音乐
+                <input type="file" id="music-upload-input" accept="audio/*" hidden>
+            </label>
+            <p class="music-upload-hint">将保存在本机浏览器（与备份 JSON 一起导出）</p>
+        </div>
+    </div>
+    <!-- 启动页 (优化版) -->
+    <div id="splash-screen" class="splash-screen-v2">
+        <div class="splash-content-v2">
+            <div class="heart-svg-wrapper">
+                <div class="heart-glow"></div>
+                <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                </svg>
+            </div>
+            <h1 class="splash-title">恋爱日记</h1>
+            <p class="splash-subtitle-v2" data-i18n="tagline">记录我们的每一个美好瞬间</p>
+            <div class="loading-dots-v2">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 首次设置页 -->
+    <div id="setup-page" class="setup-page setup-page-v2 hidden">
+        <div class="setup-container">
+            <div class="setup-header" style="display:flex;flex-direction:column;align-items:center;gap:16px;">
+                <div class="heart-svg-wrapper" style="width:80px;height:80px;">
+                    <div class="heart-glow" style="width:96px;height:96px;"></div>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:60px;height:60px;animation:heartbeatSVG 1.4s ease-in-out infinite;">
+                        <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                    </svg>
+                </div>
+                <h2 data-i18n="welcomeTitle" style="font-size:24px;font-weight:700;color:var(--text-primary);text-align:center;">欢迎来到恋爱日记</h2>
+                <p data-i18n="welcomeDesc" style="font-size:14px;color:var(--text-secondary);text-align:center;max-width:260px;line-height:1.6;">让我们开始记录美好的爱情旅程</p>
+            </div>
+            <form id="setup-form" class="setup-form" style="display:flex;flex-direction:column;gap:16px;">
+                <div class="form-group-v2">
+                    <label class="form-label-float">
+                        <svg class="icon icon-md" style="color:var(--primary-color)"><use href="#icon-user"></use></svg>
+                        <span data-i18n="yourName">你的名字</span>
+                    </label>
+                    <input class="form-input-v2" type="text" id="user1-name" placeholder="输入你的名字" required>
+                </div>
+                <div class="form-group-v2">
+                    <label class="form-label-float">
+                        <svg class="icon icon-md" style="color:var(--secondary-color)"><use href="#icon-heart"></use></svg>
+                        <span data-i18n="partnerName">伴侣的名字</span>
+                    </label>
+                    <input class="form-input-v2" type="text" id="user2-name" placeholder="输入伴侣的名字" required>
+                </div>
+                <div class="form-group-v2">
+                    <label class="form-label-float">
+                        <svg class="icon icon-md" style="color:var(--primary-color)"><use href="#icon-calendar"></use></svg>
+                        <span data-i18n="startDate">恋爱开始日期</span>
+                    </label>
+                    <input class="form-input-v2" type="date" id="love-start-date" required>
+                </div>
+                <div class="form-group-v2">
+                    <label class="form-label-float" data-i18n="chooseAvatar">选择情侣头像</label>
+                    <div class="avatar-options" style="grid-template-columns:repeat(3,1fr);gap:12px;display:grid;">
+                        <div class="avatar-option-v2 selected" data-avatar="1" title="情侣">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <div class="avatar-option-v2" data-avatar="2" title="爱心">
+                            <svg viewBox="0 0 24 24" fill="var(--primary-color)" stroke="none">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </div>
+                        <div class="avatar-option-v2" data-avatar="3" title="星星">
+                            <svg viewBox="0 0 24 24" fill="var(--accent-color)" stroke="none">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                        </div>
+                        <div class="avatar-option-v2" data-avatar="4" title="音符">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M9 18V5l12-2v13"/>
+                                <circle cx="6" cy="18" r="3"/>
+                                <circle cx="18" cy="16" r="3"/>
+                            </svg>
+                        </div>
+                        <div class="avatar-option-v2" data-avatar="5" title="猫">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="var(--secondary-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 5c-1.5-2-4-2-6 0L4 8v8l2 3h12l2-3V8l-2-3c-2-2-4.5-2-6 0z"/>
+                                <circle cx="9" cy="12" r="1" fill="var(--secondary-color)"/>
+                                <circle cx="15" cy="12" r="1" fill="var(--secondary-color)"/>
+                                <path d="M12 14v2"/>
+                            </svg>
+                        </div>
+                        <div class="avatar-option-v2" data-avatar="6" title="彩虹">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="url(#rainbowGrad)" stroke-width="2" stroke-linecap="round">
+                                <defs>
+                                    <linearGradient id="rainbowGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#FF6B6B"/>
+                                        <stop offset="25%" stop-color="#FDCB6E"/>
+                                        <stop offset="50%" stop-color="#6BCB77"/>
+                                        <stop offset="75%" stop-color="#4ECDC4"/>
+                                        <stop offset="100%" stop-color="#9B7EDE"/>
+                                    </linearGradient>
+                                </defs>
+                                <path d="M2 18c3.5-3.5 7-6 11.5-6s8 2.5 8 6-3.5 6-8 6-8-2.5-11.5-6z"/>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <button type="submit" class="btn-primary-v2" style="width:100%;margin-top:8px;">
+                    <span data-i18n="startStory">开始我们的故事</span>
+                    <svg class="icon icon-md"><use href="#icon-arrow-right"></use></svg>
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- 主应用 -->
+    <div id="main-app" class="main-app hidden">
+        <!-- 顶部标题栏 -->
+        <header class="app-header app-header-v2">
+            <div class="header-bg"></div>
+            <div class="header-content header-content-v2">
+                <div class="couple-info header-left-v2">
+                    <div class="couple-avatar header-avatar-v2" id="couple-avatar">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <div class="couple-names header-names-v2">
+                        <span id="display-name1" data-i18n="me">我</span>
+                        <span class="heart-mini heart-icon-inline">
+                            <svg viewBox="0 0 24 24" fill="var(--primary-color)" stroke="none" style="width:14px;height:14px;">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </span>
+                        <span id="display-name2" data-i18n="ta">TA</span>
+                    </div>
+                </div>
+                <div class="love-days love-days-v2">
+                    <span class="days-number" id="love-days">0</span>
+                    <span class="days-label" data-i18n="days">天</span>
+                    <p class="days-text" data-i18n="inLove">相爱</p>
+                </div>
+            </div>
+        </header>
+
+        <!-- 桌面左侧导航 + 桌面小组件 -->
+        <aside class="desktop-sidebar desktop-sidebar-v2 glass-card hidden-on-mobile" id="desktop-sidebar">
+            <div class="sidebar-nav sidebar-nav-v2">
+                <div class="nav-item nav-item-v2 active" data-page="home">
+                    <svg class="icon icon-lg" style="width:22px;height:22px"><use href="#icon-home"></use></svg>
+                    <span class="nav-label" data-i18n="home">首页</span>
+                </div>
+                <div class="nav-item nav-item-v2" data-page="chat-realtime">
+                    <svg class="icon icon-lg" style="width:22px;height:22px"><use href="#icon-chat"></use></svg>
+                    <span class="nav-label" data-i18n="chat">聊天</span>
+                </div>
+                <div class="nav-item nav-item-v2" data-page="quiz">
+                    <svg class="icon icon-lg" style="width:22px;height:22px"><use href="#icon-game"></use></svg>
+                    <span class="nav-label" data-i18n="game">游戏</span>
+                </div>
+                <div class="nav-item nav-item-v2" data-page="photo">
+                    <svg class="icon icon-lg" style="width:22px;height:22px"><use href="#icon-photos"></use></svg>
+                    <span class="nav-label" data-i18n="photo">相册</span>
+                </div>
+                <div class="nav-item nav-item-v2" data-page="bill">
+                    <svg class="icon icon-lg" style="width:22px;height:22px"><use href="#icon-wallet"></use></svg>
+                    <span class="nav-label" data-i18n="bill">账单</span>
+                </div>
+                <div class="nav-item nav-item-v2" data-page="wishes">
+                    <svg class="icon icon-lg" style="width:22px;height:22px"><use href="#icon-star"></use></svg>
+                    <span class="nav-label" data-i18n="wish">愿望</span>
+                </div>
+                <div class="nav-item nav-item-v2" data-page="settings">
+                    <svg class="icon icon-lg" style="width:22px;height:22px"><use href="#icon-settings"></use></svg>
+                    <span class="nav-label" data-i18n="settings">设置</span>
+                </div>
+            </div>
+
+            <div class="sidebar-widget" id="desktop-widget">
+                <div class="widget-title">
+                    桌面小组件
+                    <button class="widget-toggle" id="btn-toggle-widget" type="button" data-i18n="collapse">收起</button>
+                </div>
+                <div class="widget-love">
+                    <div class="widget-love-days">
+                        <span id="widget-love-days">0</span>
+                        <span class="days-label" data-i18n="days">天</span>
+                    </div>
+                    <div class="widget-next" id="widget-next-reminder">下一提醒：-</div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 匹配页面 -->
+            <section id="page-matching" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2 data-i18n="coupleMatch">情侣匹配</h2>
+                </div>
+                <div class="matching-container">
+                    <!-- 未配对状态 -->
+                    <div id="matching-unpaired" class="matching-unpaired">
+                        <div class="matching-hero">
+                            <div class="matching-icon" style="display:flex;align-items:center;justify-content:center;width:80px;height:80px;">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="var(--primary-color)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" style="width:60px;height:60px;">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </div>
+                            <h3 data-i18n="findYourHalf">找到你的另一半</h3>
+                            <p data-i18n="qrDesc">生成专属二维码，让TA扫描绑定</p>
+                        </div>
+                        
+                        <!-- 我的二维码 -->
+                        <div class="qr-card glass-card">
+                            <div class="qr-card-header">
+                                <span data-i18n="myQR">我的二维码</span>
+                                <span id="pairing-status" class="pairing-status" data-i18n="waitingPair">等待配对</span>
+                            </div>
+                            <div id="qr-code-container" class="qr-code-container">
+                                <!-- 二维码将在这里生成 -->
+                            </div>
+                            <div class="qr-code-info">
+                                <span data-i18n="pairCode">配对码：</span>
+                                <span id="pairing-code-display" class="pairing-code">--------</span>
+                                <button class="copy-code-btn" onclick="copyPairingCode()">📋</button>
+                            </div>
+                            <p class="qr-hint" data-i18n="scanHint">让TA扫描上方二维码即可完成配对</p>
+                        </div>
+                        
+                        <!-- 扫描对方二维码 -->
+                        <div class="scan-card glass-card">
+                            <h4>扫描TA的二维码</h4>
+                            <button class="btn-primary scan-btn" id="btn-open-scanner" onclick="openScanner()" data-i18n="openScanner">📷 打开扫描器</button>
+                            <div class="manual-pairing">
+                                <p data-i18n="inputCode">或手动输入配对码：</p>
+                                <div class="manual-input-row">
+                                    <input type="text" id="manual-pairing-input" placeholder="输入8位配对码" maxlength="8">
+                                    <button class="btn-secondary" onclick="handleManualPairing()" data-i18n="pairBtn">配对</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- 已配对状态 -->
+                    <div id="matching-paired" class="matching-paired hidden">
+                        <div class="paired-hero">
+                            <div class="paired-avatars" id="paired-avatars">
+                                <span class="avatar-large">🧑‍🤝‍🧑</span>
+                            </div>
+                            <h3 data-i18n="paired">我们已配对 💕</h3>
+                            <p id="paired-since">配对于 2024-01-01</p>
+                        </div>
+                        
+                        <div class="paired-actions glass-card">
+                            <div class="partner-info" id="partner-info-card">
+                                <div class="partner-avatar">👤</div>
+                                <div class="partner-details">
+                                    <span class="partner-name" id="partner-display-name" data-i18n="ta">TA</span>
+                                    <span class="partner-status" data-i18n="online">在线</span>
+                                </div>
+                            </div>
+                            <button class="btn-secondary danger" onclick="unpairCouple()" data-i18n="unpair">解除配对</button>
+                        </div>
+                        
+                        <div class="paired-features glass-card">
+                            <h4 data-i18n="afterPairFeatures">配对后可用功能</h4>
+                            <div class="feature-list">
+                                <div class="feature-item">
+                                    <span class="feature-icon">💬</span>
+                                    <span data-i18n="realtimeChat">实时聊天</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">📍</span>
+                                    <span>位置共享</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">🎵</span>
+                                    <span data-i18n="listenTogether">一起听音乐</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">📅</span>
+                                    <span>双人日历</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">📸</span>
+                                    <span data-i18n="sharedAlbum">共同相册</span>
+                                </div>
+                                <div class="feature-item">
+                                    <span class="feature-icon">🔦</span>
+                                    <span>屏幕共享</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 首页/仪表盘 -->
+            <section id="page-home" class="page active">
+                <div class="home-dashboard">
+                    <!-- 快捷操作 -->
+                    <div class="quick-actions quick-actions-v2">
+                        <div class="action-card action-card-v2" data-page="diary">
+                            <div class="action-icon-bg" style="background:linear-gradient(135deg,rgba(255,143,177,0.15),rgba(183,110,159,0.15))">">
+                                <svg class="icon icon-lg" style="color:var(--primary-color)"><use href="#ico-diary"></use></svg>
+                            </div>
+                            <span class="action-name">写日记</span>
+                        </div>
+                        <div class="action-card action-card-v2" data-page="matching">
+                            <div class="action-icon-bg" style="background:linear-gradient(135deg,rgba(255,143,177,0.15),rgba(183,110,159,0.15))">">
+                                <svg class="icon icon-lg" style="color:var(--primary-color)"><use href="#ico-anniversary"></use></svg>
+                            </div>
+                            <span class="action-name" data-i18n="coupleMatch">情侣匹配</span>
+                        </div>
+                        <div class="action-card action-card-v2" data-page="chat-realtime">
+                            <div class="action-icon-bg" style="background:linear-gradient(135deg,rgba(255,143,177,0.15),rgba(183,110,159,0.15))">">
+                                <svg class="icon icon-lg" style="color:var(--primary-color)"><use href="#ico-chat"></use></svg>
+                            </div>
+                            <span class="action-name" data-i18n="sweetChat">甜蜜聊天</span>
+                        </div>
+                        <div class="action-card action-card-v2" data-page="calendar">
+                            <div class="action-icon-bg" style="background:linear-gradient(135deg,rgba(255,143,177,0.15),rgba(183,110,159,0.15))">">
+                                <svg class="icon icon-lg" style="color:var(--primary-color)"><use href="#ico-calendar"></use></svg>
+                            </div>
+                            <span class="action-name" data-i18n="moodCalendar">心情日历</span>
+                        </div>
+                        <div class="action-card action-card-v2" data-page="anniversary">
+                            <div class="action-icon-bg" style="background:linear-gradient(135deg,rgba(255,143,177,0.15),rgba(183,110,159,0.15))">">
+                                <svg class="icon icon-lg" style="color:var(--primary-color)"><use href="#ico-anniversary"></use></svg>
+                            </div>
+                            <span class="action-name" data-i18n="anniversary">纪念日</span>
+                        </div>
+                        <div class="action-card action-card-v2" data-page="quiz">
+                            <div class="action-icon-bg" style="background:linear-gradient(135deg,rgba(255,143,177,0.15),rgba(183,110,159,0.15))">">
+                                <svg class="icon icon-lg" style="color:var(--primary-color)"><use href="#ico-game"></use></svg>
+                            </div>
+                            <span class="action-name" data-i18n="compatibility">默契测试</span>
+                        </div>
+                        <div class="action-card action-card-v2" data-page="plan">
+                            <div class="action-icon-bg" style="background:linear-gradient(135deg,rgba(255,143,177,0.15),rgba(183,110,159,0.15))">">
+                                <svg class="icon icon-lg" style="color:var(--primary-color)"><use href="#ico-stats"></use></svg>
+                            </div>
+                            <span class="action-name" data-i18n="todayPlan">今日计划</span>
+                        </div>
+                        <div class="action-card action-card-v2" data-page="stats">
+                            <div class="action-icon-bg" style="background:linear-gradient(135deg,rgba(255,143,177,0.15),rgba(183,110,159,0.15))">">
+                                <svg class="icon icon-lg" style="color:var(--primary-color)"><use href="#ico-stats"></use></svg>
+                            </div>
+                            <span class="action-name" data-i18n="stats">统计</span>
+                        </div>
+                        <div class="action-card action-card-v2" data-page="location">
+                            <div class="action-icon-bg" style="background:linear-gradient(135deg,rgba(255,143,177,0.15),rgba(183,110,159,0.15))">">
+                                <svg class="icon icon-lg" style="color:var(--primary-color)"><use href="#ico-location"></use></svg>
+                            </div>
+                            <span class="action-name">位置共享</span>
+                        </div>
+                        <div class="action-card action-card-v2" data-page="activity">
+                            <div class="action-icon-bg" style="background:linear-gradient(135deg,rgba(255,143,177,0.15),rgba(183,110,159,0.15))">">
+                                <svg class="icon icon-lg" style="color:var(--primary-color)"><use href="#ico-bill"></use></svg>
+                            </div>
+                            <span class="action-name" data-i18n="behaviorReport">行为报告</span>
+                        </div>
+                        <div class="action-card action-card-v2" data-page="music">
+                            <div class="action-icon-bg" style="background:linear-gradient(135deg,rgba(255,143,177,0.15),rgba(183,110,159,0.15))">">
+                                <svg class="icon icon-lg" style="color:var(--primary-color)"><use href="#ico-music"></use></svg>
+                            </div>
+                            <span class="action-name" data-i18n="listenMusic">一起听歌</span>
+                        </div>
+                        <div class="action-card action-card-v2" data-page="summary">
+                            <div class="action-icon-bg" style="background:linear-gradient(135deg,rgba(255,143,177,0.15),rgba(183,110,159,0.15))">">
+                                <svg class="icon icon-lg" style="color:var(--primary-color)"><use href="#ico-wish"></use></svg>
+                            </div>
+                            <span class="action-name" data-i18n="annualSummary">年度总结</span>
+                        </div>
+                    </div>
+
+                    <!-- 今日心情卡片 -->
+                    <div class="mood-card glass-card">
+                        <h3 data-i18n="todayMood">今日心情</h3>
+                        <div class="mood-selector mood-selector-v2">
+                            <div class="mood-btn mood-option" data-mood="1" title="难过">
+                                <svg viewBox="0 0 24 24" width="28" height="28"><use href="#mood-sad"></use></svg>
+                                <span class="mood-label">难过</span>
+                            </div>
+                            <div class="mood-btn mood-option" data-mood="2" title="生气">
+                                <svg viewBox="0 0 24 24" width="28" height="28"><use href="#mood-angry"></use></svg>
+                                <span class="mood-label">生气</span>
+                            </div>
+                            <div class="mood-btn mood-option" data-mood="3" title="困倦">
+                                <svg viewBox="0 0 24 24" width="28" height="28"><use href="#mood-sleepy"></use></svg>
+                                <span class="mood-label">困倦</span>
+                            </div>
+                            <div class="mood-btn mood-option" data-mood="4" title="热恋">
+                                <svg viewBox="0 0 24 24" width="28" height="28"><use href="#mood-inlove"></use></svg>
+                                <span class="mood-label">热恋</span>
+                            </div>
+                            <div class="mood-btn mood-option" data-mood="5" title="平静">
+                                <svg viewBox="0 0 24 24" width="28" height="28"><use href="#mood-neutral"></use></svg>
+                                <span class="mood-label">平静</span>
+                            </div>
+                            <div class="mood-btn mood-option" data-mood="6" title="思考">
+                                <svg viewBox="0 0 24 24" width="28" height="28"><use href="#mood-thinking"></use></svg>
+                                <span class="mood-label">思考</span>
+                            </div>
+                            <div class="mood-btn mood-option" data-mood="7" title="开心">
+                                <svg viewBox="0 0 24 24" width="28" height="28"><use href="#mood-happy"></use></svg>
+                                <span class="mood-label">开心</span>
+                            </div>
+                        </div>
+                        <p class="mood-text" id="mood-text" data-i18n="howMood">今天心情如何呢？</p>
+                    </div>
+
+                    <!-- 今日文字日记（核心要求：首页必须可输入） -->
+                    <div class="mini-diary glass-card">
+                        <h3 data-i18n="textDiary">今日文字日记</h3>
+                        <div class="editor-content">
+                            <textarea id="home-diary-content" placeholder="写下今天的故事...（可以是甜蜜的小事、感动的瞬间，或者想对TA说的话）" rows="4"></textarea>
+                        </div>
+                        <div class="editor-photos">
+                            <label data-i18n="addPhoto">添加照片</label>
+                            <div class="photo-upload">
+                                <div class="photo-add" id="btn-add-home-photo">
+                                    <span>+</span>
+                                </div>
+                                <div id="home-photo-preview-list" class="photo-preview-list"></div>
+                            </div>
+                            <input type="file" id="home-photo-input" accept="image/*" multiple hidden>
+                        </div>
+                        <button class="btn-primary" id="btn-save-home-diary" style="width:100%; margin-top:14px;" data-i18n="saveDiary">保存今日日记</button>
+                    </div>
+
+                    <!-- 统计面板（核心要求：首页需要） -->
+                    <div class="glass-card home-stats-card">
+                        <div class="section-header">
+                            <h3 data-i18n="statsPanel">统计面板</h3>
+                            <span class="text-subtle" id="home-stat-sub">---</span>
+                        </div>
+                        <div class="home-stat-line">
+                            <span data-i18n="diaryCount">日记篇数</span>
+                            <span class="home-stat-value" id="home-stat-diary-count">0</span>
+                        </div>
+                        <div class="home-mood-dist" id="home-mood-dist"></div>
+                    </div>
+
+                    <!-- 今日话题 -->
+                    <div class="topic-card glass-card">
+                        <div class="topic-header">
+                            <span class="topic-badge" data-i18n="dailyTopic">💬 每日话题</span>
+                            <span class="topic-date" id="topic-date"></span>
+                        </div>
+                        <h4 id="daily-topic">...</h4>
+                        <p class="topic-desc" data-i18n="shareThoughts">和TA分享你的想法吧~</p>
+                        <button class="btn-small" data-page="diary" data-i18n="goRecord">去记录</button>
+                    </div>
+
+                    <!-- 最近日记 -->
+                    <div class="recent-diaries glass-card">
+                        <div class="section-header">
+                            <h3 data-i18n="recentDiary">最近日记</h3>
+                            <button class="btn-text" data-page="diary" data-i18n="viewAll">查看全部</button>
+                        </div>
+                        <div id="recent-diaries-list" class="diaries-list">
+                            <div class="empty-state">
+                                <span class="empty-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg"><use href="#empty-diary"/></svg>
+                                </span>
+                                <p data-i18n="noDiary">还没有日记，写第一篇吧！</p>
+                                <span class="empty-sub" data-i18n="t_writeFirstHint">记录你们的故事，留住美好回忆</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 即将到来的纪念日 -->
+                    <div class="upcoming-anniversaries glass-card">
+                        <div class="section-header">
+                            <h3 data-i18n="upcoming">即将到来</h3>
+                            <button class="btn-text" data-page="anniversary" data-i18n="all">全部</button>
+                        </div>
+                        <div id="upcoming-list" class="anniversary-list">
+                            <div class="empty-state">
+                                <span class="empty-icon" aria-hidden="true">
+                                    <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg"><use href="#empty-anniversary"/></svg>
+                                </span>
+                                <p data-i18n="noAnniversary">还没有设置纪念日</p>
+                                <span class="empty-sub" data-i18n="t_addAnniversaryHint">记录你们的重要日子，不错过每一个甜蜜时刻</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 日记页面 -->
+            <section id="page-diary" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2>恋爱日记</h2>
+                    <button class="btn-icon-add" id="btn-new-diary">+</button>
+                </div>
+                <div class="diary-container">
+                    <!-- 日记列表 -->
+                    <div id="diary-list" class="diary-list">
+                        <div class="empty-state large">
+                            <span class="empty-icon" aria-hidden="true">
+                                <svg viewBox="0 0 120 100" xmlns="http://www.w3.org/2000/svg"><use href="#empty-diary"/></svg>
+                            </span>
+                            <p data-i18n="recordGoodTime">记录我们的美好时光</p>
+                            <span class="empty-sub" data-i18n="t_writeFirstHint">记录你们的故事，留住美好回忆</span>
+                            <button class="btn-primary" id="btn-first-diary" data-i18n="writeFirstDiary">写第一篇日记</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 写日记/编辑日记 -->
+            <section id="page-diary-edit" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="diary" data-i18n="back">←</button>
+                    <h2 id="diary-edit-title">写日记</h2>
+                    <button class="btn-save" id="btn-save-diary" data-i18n="save">保存</button>
+                </div>
+                <div class="diary-editor">
+                    <div class="editor-date">
+                        <span id="editor-date-display"></span>
+                    </div>
+                    <div class="editor-mood">
+                        <label data-i18n="todayMood2">今天的心情</label>
+                        <div class="mood-selector large">
+                            <div class="mood-option" data-mood="1">😢</div>
+                            <div class="mood-option" data-mood="2">😡</div>
+                            <div class="mood-option" data-mood="3">😴</div>
+                            <div class="mood-option" data-mood="4">🥰</div>
+                            <div class="mood-option" data-mood="5">😐</div>
+                            <div class="mood-option" data-mood="6">🤔</div>
+                            <div class="mood-option" data-mood="7">😊</div>
+                        </div>
+                    </div>
+                    <div class="editor-content">
+                        <textarea id="diary-content" placeholder="写下今天的故事...&#10;&#10;可以是甜蜜的小事、感动的瞬间，或者想对TA说的话..." rows="10"></textarea>
+                    </div>
+                    <div class="editor-photos">
+                        <label data-i18n="addPhoto">添加照片</label>
+                        <div class="photo-upload">
+                            <div class="photo-add" id="btn-add-photo">
+                                <span>+</span>
+                            </div>
+                            <div id="photo-preview-list" class="photo-preview-list"></div>
+                        </div>
+                        <input type="file" id="photo-input" accept="image/*" multiple hidden>
+                    </div>
+                    <input type="hidden" id="diary-id">
+                </div>
+            </section>
+
+            <!-- 纪念日页面 -->
+            <section id="page-anniversary" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2 data-i18n="anniversary">纪念日</h2>
+                    <button class="btn-icon-add" id="btn-new-anniversary">+</button>
+                </div>
+                <div class="anniversary-container">
+                    <!-- 恋爱时间轴 -->
+                    <div class="timeline-section glass-card">
+                        <h3 data-i18n="ourTimeline">我们的时间轴</h3>
+                        <div id="love-timeline" class="timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-dot"></div>
+                                <div class="timeline-content">
+                                    <span class="timeline-date" id="timeline-start-date"></span>
+                                    <p class="timeline-title" data-i18n="loveStart">恋爱开始 💕</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 纪念日列表 -->
+                    <div class="anniversary-list-section">
+                        <h3 data-i18n="importantDay">重要日子</h3>
+                        <div id="anniversary-list" class="anniversary-list-full"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 添加纪念日 -->
+            <section id="page-anniversary-edit" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="anniversary" data-i18n="back">←</button>
+                    <h2 data-i18n="addAnniversary">添加纪念日</h2>
+                    <button class="btn-save" id="btn-save-anniversary" data-i18n="save">保存</button>
+                </div>
+                <div class="anniversary-form">
+                    <div class="form-group">
+                        <label data-i18n="anniversaryName">纪念日名称</label>
+                        <input type="text" id="anniversary-title" placeholder="例如：第一次约会">
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="date">日期</label>
+                        <input type="date" id="anniversary-date">
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="typePreset">类型（点击预设或自定义）</label>
+                        <div class="type-options">
+                            <div class="type-option selected" data-type="date" data-i18n="normal">📅 普通</div>
+                            <div class="type-option" data-type="birthday" data-i18n="birthday">🎂 生日</div>
+                            <div class="type-option" data-type="meeting" data-i18n="meet">✨ 相遇</div>
+                            <div class="type-option" data-type="anniversary" data-i18n="wedding">💍 周年</div>
+                            <div class="type-option" data-type="custom" data-i18n="custom">✏️ 自定义</div>
+                        </div>
+                        <input type="text" id="anniversary-custom-type" placeholder="输入自定义类型名称（如：旅行、纪念等）" class="custom-type-input" style="margin-top:8px;padding:10px;border:2px solid var(--bg-secondary);border-radius:8px;width:100%;display:none;">
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="typeIcon">类型图标</label>
+                        <div class="type-icon-options">
+                            <span class="type-icon-option selected" data-icon="📅">📅</span>
+                            <span class="type-icon-option" data-icon="🎂">🎂</span>
+                            <span class="type-icon-option" data-icon="✨">✨</span>
+                            <span class="type-icon-option" data-icon="💍">💍</span>
+                            <span class="type-icon-option" data-icon="🌹">🌹</span>
+                            <span class="type-icon-option" data-icon="🎁">🎁</span>
+                            <span class="type-icon-option" data-icon="🏠">🏠</span>
+                            <span class="type-icon-option" data-icon="✈️">✈️</span>
+                            <span class="type-icon-option" data-icon="🍽️">🍽️</span>
+                            <span class="type-icon-option" data-icon="🎬">🎬</span>
+                            <span class="type-icon-option" data-icon="💕">💕</span>
+                            <span class="type-icon-option" data-icon="🎊">🎊</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label data-i18n="reminder">提醒设置</label>
+                        <div class="remind-options">
+                            <div class="remind-option selected" data-days="0" data-i18n="sameDay">当天</div>
+                            <div class="remind-option" data-days="1" data-i18n="before1">提前1天</div>
+                            <div class="remind-option" data-days="3" data-i18n="before3">提前3天</div>
+                            <div class="remind-option" data-days="7" data-i18n="before7">提前7天</div>
+                        </div>
+                    </div>
+                    <input type="hidden" id="anniversary-id">
+                </div>
+            </section>
+
+            <!-- 默契测试页面 -->
+            <section id="page-quiz" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2 data-i18n="gameAndCompat">游戏与默契</h2>
+                </div>
+                <div class="quiz-container">
+                    <!-- 恋爱指数进度条（游戏核心要求） -->
+                    <div class="glass-card love-index-card">
+                        <div class="section-header">
+                            <h3 data-i18n="loveIndex">恋爱指数</h3>
+                            <span class="text-subtle" id="love-index-text">0%</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="love-index-fill"></div>
+                        </div>
+                    </div>
+
+                    <!-- AI 每日问答（核心创新要求） -->
+                    <div class="glass-card daily-qa-card">
+                        <div class="section-header">
+                            <h3 data-i18n="aiDailyQA">AI 每日问答</h3>
+                            <span class="text-subtle" id="daily-qa-date">-</span>
+                        </div>
+                        <div class="daily-qa-topic" id="daily-qa-topic">...</div>
+                        <label class="qa-label" data-i18n="taAnswer">TA的回答</label>
+                        <textarea id="daily-qa-answer1" rows="2" placeholder="写下TA的想法..."></textarea>
+                        <label class="qa-label" data-i18n="yourAnswer">你的回答</label>
+                        <textarea id="daily-qa-answer2" rows="2" placeholder="写下你想说的..."></textarea>
+                        <div class="qa-options">
+                            <label class="checkbox-row">
+                                <input type="checkbox" id="daily-qa-use-local-ai">
+                                <span data-i18n="useLocalAI">启用本地AI评分（可选）</span>
+                            </label>
+                        </div>
+                        <button class="btn-primary" id="btn-daily-qa-submit" style="width:100%; margin-top:12px;" data-i18n="submitCompat">提交并生成默契度</button>
+                        <div class="daily-qa-result">
+                            <div class="result-line"><span class="result-title" data-i18n="compatScore">默契度：</span><span id="daily-qa-score">-</span></div>
+                            <div class="result-line"><span class="result-title" data-i18n="commonPoints">共同点：</span><span id="daily-qa-common">-</span></div>
+                            <div class="result-line"><span class="result-title" data-i18n="compare">对比：</span><span id="daily-qa-comparison">-</span></div>
+                        </div>
+                    </div>
+
+                    <!-- 打卡挑战：一起做的100件事 -->
+                    <div class="glass-card challenge-100-card">
+                        <div class="section-header">
+                            <h3 data-i18n="challenge100">一起做的100件事</h3>
+                            <span class="text-subtle" id="c100-summary">0/100</span>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-fill" id="c100-fill"></div>
+                        </div>
+                        <div class="c100-list" id="c100-list"></div>
+                    </div>
+
+                    <div id="quiz-start" class="quiz-start">
+                        <div class="quiz-intro">
+                            <div class="quiz-icon">❤️</div>
+                            <h3 data-i18n="compatTest">默契大考验</h3>
+                            <p data-i18n="testKnowEachOther">测试你们对彼此的了解程度</p>
+                            <ul class="quiz-features">
+                                <li>🎯 10道精选问题</li>
+                                <li>📊 实时默契指数</li>
+                                <li>🏆 解锁成就徽章</li>
+                            </ul>
+                            <button class="btn-primary" id="btn-start-quiz" data-i18n="startTest">开始测试</button>
+                        </div>
+                    </div>
+                    <div id="quiz-game" class="quiz-game hidden">
+                        <div class="quiz-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="quiz-progress-fill"></div>
+                            </div>
+                            <span class="progress-text" id="quiz-progress-text">1/10</span>
+                        </div>
+                        <div class="quiz-question-card">
+                            <h4 id="quiz-question">...</h4>
+                            <div id="quiz-options" class="quiz-options"></div>
+                        </div>
+                    </div>
+                    <div id="quiz-result" class="quiz-result hidden">
+                        <div class="result-score">
+                            <div class="score-circle">
+                                <span id="quiz-score">0</span>
+                                <small data-i18n="point">分</small>
+                            </div>
+                        </div>
+                        <h3 id="quiz-result-title">...</h3>
+                        <p id="quiz-result-desc">...</p>
+                        <div class="result-actions">
+                            <button class="btn-primary" id="btn-retry-quiz" data-i18n="retest">再测一次</button>
+                            <button class="btn-secondary" data-page="home" data-i18n="backHome">返回首页</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 游戏合集 -->
+                <div class="game-collection glass-card">
+                    <h3 data-i18n="gameCollection">🎮 游戏合集</h3>
+                    <p class="game-hint" data-i18n="playWithTA">与TA一起玩，增进感情~</p>
+                    <div class="fun-features-grid">
+                        <button class="fun-feature-btn" data-page="pet">
+                            <span class="fun-icon">🐱</span>
+                            <span data-i18n="virtualPet">电子宠物</span>
+                        </button>
+                        <button class="fun-feature-btn" data-page="decorate">
+                            <span class="fun-icon">🏠</span>
+                            <span data-i18n="decorateHouse">装扮小屋</span>
+                        </button>
+                        <button class="fun-feature-btn" data-page="mood-room">
+                            <span class="fun-icon">💝</span>
+                            <span data-i18n="moodRoom">情绪空间</span>
+                        </button>
+                        <button class="fun-feature-btn" data-page="couple-task">
+                            <span class="fun-icon">🎯</span>
+                            <span data-i18n="coupleTask">情侣任务</span>
+                        </button>
+                        <button class="fun-feature-btn" data-page="kiss">
+                            <span class="fun-icon">💋</span>
+                            <span data-i18n="airKiss">隔空Kiss</span>
+                        </button>
+                        <button class="fun-feature-btn" data-page="heartbeat">
+                            <span class="fun-icon">💓</span>
+                            <span data-i18n="heartBeat">心跳感应</span>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 相册页面 -->
+            <section id="page-photo" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2 data-i18n="photo">相册</h2>
+                    <button class="btn-small" id="btn-upload-album" data-i18n="upload">上传</button>
+                </div>
+                <div id="album-tabs-container" class="album-container">
+                    <!-- 相册标签将在这里渲染 -->
+                </div>
+                <div class="album-container">
+                    <div class="glass-card" style="margin-top:16px;">
+                        <div class="photo-url-row">
+                            <input id="album-url-input" placeholder="粘贴图片URL添加照片..." />
+                            <button class="btn-secondary" id="btn-add-album-url" style="white-space:nowrap;" data-i18n="add">添加</button>
+                        </div>
+                    </div>
+                    <div class="photo-grid" id="album-photos-grid" style="margin-top:16px;">
+                        <!-- 相册照片将在这里渲染 -->
+                    </div>
+                </div>
+                <input type="file" id="album-upload-input" accept="image/*" multiple hidden>
+            </section>
+
+            <!-- 账单页面 -->
+            <section id="page-bill" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2 data-i18n="loveBill">恋爱账单</h2>
+                </div>
+                <div class="glass-card bill-card">
+                    <div class="section-header">
+                        <h3 data-i18n="jointAccounting">共同记账</h3>
+                        <span class="text-subtle" data-i18n="autoStats">自动统计收支</span>
+                    </div>
+                    <div class="bill-form">
+                        <div class="form-group-inline">
+                            <input type="text" id="bill-desc" placeholder="描述（例如：看电影）">
+                            <input type="number" id="bill-amount" placeholder="金额" step="0.01">
+                        </div>
+                        <div class="type-options">
+                            <div class="type-option selected" data-type="expense" data-i18n="expense">支出</div>
+                            <div class="type-option" data-type="income" data-i18n="income">收入</div>
+                        </div>
+                        <button class="btn-primary" id="btn-add-bill" style="width:100%;" data-i18n="add">添加</button>
+                    </div>
+                    <div class="bill-total">
+                        <div class="bill-total-inner">
+                            <div data-i18n="currentBalance">当前结余</div>
+                            <div class="bill-total-value" id="bill-net">¥0</div>
+                        </div>
+                    </div>
+
+                    <!-- 收支统计图表（轻量版） -->
+                    <div class="bill-chart" aria-hidden="true">
+                        <div class="bill-chart-row">
+                            <div class="bill-chart-label" id="bill-chart-expense" data-i18n="expense">支出</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="bill-chart-expense-fill" style="width:0%"></div>
+                            </div>
+                            <div class="bill-chart-value" id="bill-chart-expense-value">¥0</div>
+                        </div>
+                        <div class="bill-chart-row">
+                            <div class="bill-chart-label" id="bill-chart-income" data-i18n="income">收入</div>
+                            <div class="progress-bar">
+                                <div class="progress-fill" id="bill-chart-income-fill" style="width:0%"></div>
+                            </div>
+                            <div class="bill-chart-value" id="bill-chart-income-value">¥0</div>
+                        </div>
+                    </div>
+
+                    <div class="bill-list" id="bill-list"></div>
+                </div>
+                <div class="glass-card vault-card" style="margin-top:14px;">
+                    <div class="section-header">
+                        <h3 data-i18n="vault">恋爱小金库</h3>
+                        <span class="text-subtle" data-i18n="depositWithdraw">存取记录</span>
+                    </div>
+                    <div class="vault-balance">
+                        <div class="vault-balance-value" id="vault-balance">¥0</div>
+                    </div>
+                    <div class="bill-form">
+                        <div class="form-group-inline">
+                            <input type="number" id="vault-input" placeholder="金额" step="0.01">
+                            <button class="btn-secondary" id="btn-vault-deposit" style="width:auto;" data-i18n="deposit">存入</button>
+                            <button class="btn-secondary" id="btn-vault-withdraw" style="width:auto;" data-i18n="withdraw">取出</button>
+                        </div>
+                    </div>
+                    <div class="vault-log" id="vault-log"></div>
+                </div>
+            </section>
+
+            <!-- 愿望页面 -->
+            <section id="page-wishes" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2 data-i18n="wishList">愿望清单</h2>
+                </div>
+                <div class="glass-card wish-card">
+                    <div class="section-header">
+                        <h3 data-i18n="makeWish">许下愿望</h3>
+                        <span class="text-subtle" id="wish-progress">0%</span>
+                    </div>
+                    <div class="wish-add-row">
+                        <input id="wish-input" placeholder="写下愿望..." />
+                        <button class="btn-primary" id="btn-add-wish" style="white-space:nowrap;">+</button>
+                    </div>
+                    <div class="wish-list" id="wish-list"></div>
+                </div>
+            </section>
+
+            <!-- 电子宠物页面 -->
+            <section id="page-pet" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2 data-i18n="virtualPet">电子宠物</h2>
+                </div>
+                <div id="pet-container" class="pet-container">
+                    <!-- 宠物内容将在这里渲染 -->
+                </div>
+            </section>
+
+            <!-- 装扮小屋页面 -->
+            <section id="page-decorate" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2 data-i18n="decorateHouse">装扮小屋</h2>
+                </div>
+                <div id="decorate-container" class="decorate-container">
+                    <!-- 装扮内容将在这里渲染 -->
+                </div>
+            </section>
+
+            <!-- 情绪空间页面 -->
+            <section id="page-mood-room" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2 data-i18n="moodRoom">情绪空间</h2>
+                </div>
+                <div id="mood-room-container" class="mood-room-container">
+                    <!-- 情绪内容将在这里渲染 -->
+                </div>
+            </section>
+
+            <!-- 情侣任务页面 -->
+            <section id="page-couple-task" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2 data-i18n="coupleTask">情侣任务</h2>
+                </div>
+                <div id="couple-task-container" class="couple-task-container">
+                    <!-- 任务内容将在这里渲染 -->
+                </div>
+            </section>
+
+            <!-- 隔空互动页面 -->
+            <section id="page-kiss" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2 data-i18n="longDistance">隔空互动</h2>
+                </div>
+                <div id="kiss-container" class="kiss-container">
+                    <!-- Kiss内容将在这里渲染 -->
+                </div>
+            </section>
+
+            <!-- 年度总结页面 -->
+            <section id="page-summary" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2 data-i18n="annualSummary">年度总结</h2>
+                </div>
+                <div class="annual-summary-container" id="annual-summary-content">
+                    <!-- 动态生成 -->
+                </div>
+            </section>
+
+            <!-- 双人心情日历页面 -->
+            <section id="page-calendar" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2 data-i18n="moodCalendarTitle">双人心情日历</h2>
+                </div>
+                <div class="calendar-container">
+                    <div class="calendar-header">
+                        <div class="calendar-nav">
+                            <button id="calendar-prev" data-i18n="back">←</button>
+                            <span class="calendar-month" id="calendar-month-display">2024年1月</span>
+                            <button id="calendar-next">→</button>
+                        </div>
+                        <button class="btn-small" id="calendar-today" data-i18n="today">今天</button>
+                    </div>
+                    <div class="calendar-grid glass-card">
+                        <div class="calendar-weekdays">
+                            <div class="calendar-weekday" data-i18n="sun">日</div>
+                            <div class="calendar-weekday" data-i18n="mon">一</div>
+                            <div class="calendar-weekday" data-i18n="tue">二</div>
+                            <div class="calendar-weekday" data-i18n="wed">三</div>
+                            <div class="calendar-weekday" data-i18n="thu">四</div>
+                            <div class="calendar-weekday" data-i18n="fri">五</div>
+                            <div class="calendar-weekday" data-i18n="sat">六</div>
+                        </div>
+                        <div class="calendar-days" id="calendar-days-grid">
+                            <!-- 日历日期将在这里渲染 -->
+                        </div>
+                    </div>
+                    <div class="glass-card" style="margin-top:16px;padding:16px;">
+                        <h4 style="margin-bottom:12px;" data-i18n="moodTip">💡 心情说明</h4>
+                        <div style="display:flex;flex-wrap:wrap;gap:8px;">
+                            <span class="mood-chip">😢 难过</span>
+                            <span class="mood-chip">😡 生气</span>
+                            <span class="mood-chip">😴 困倦</span>
+                            <span class="mood-chip">🥰 甜蜜</span>
+                            <span class="mood-chip">😐 平静</span>
+                            <span class="mood-chip">🤔 思考</span>
+                            <span class="mood-chip">😊 开心</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 今日恋爱计划页面 -->
+            <section id="page-plan" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2 data-i18n="lovePlan">今日恋爱计划</h2>
+                    <button class="btn-icon-add" id="btn-add-plan">+</button>
+                </div>
+                <div class="plan-container">
+                    <div class="plan-card">
+                        <div class="plan-header">
+                            <h4 data-i18n="todo">📋 今日待办</h4>
+                            <span class="text-subtle" id="plan-count">0/0</span>
+                        </div>
+                        <div class="plan-list" id="plan-list">
+                            <!-- 计划列表将在这里渲染 -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 每日行为报告页面 -->
+            <section id="page-activity" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2 data-i18n="behaviorReportTitle">每日行为报告</h2>
+                </div>
+                <div class="activity-container">
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <h4 data-i18n="quickRecord">📝 快速记录</h4>
+                        </div>
+                        <div id="activity-categories" class="activity-categories">
+                            <!-- 活动分类将在这里渲染 -->
+                        </div>
+                        <div class="activity-form">
+                            <input type="text" id="activity-custom-input" class="activity-input" placeholder="添加自定义活动...">
+                            <button class="btn-primary" id="btn-add-activity" style="width:100%;" data-i18n="add">添加</button>
+                        </div>
+                    </div>
+                    <div class="activity-card">
+                        <div class="activity-header">
+                            <h4 data-i18n="todayActivity">📋 今日活动</h4>
+                        </div>
+                        <div class="activity-list" id="activity-list">
+                            <!-- 活动列表将在这里渲染 -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 位置共享页面 -->
+            <section id="page-location" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2>位置共享</h2>
+                    <button class="btn-small" id="btn-refresh-location" data-i18n="refresh">刷新</button>
+                </div>
+                <div class="location-container">
+                    <!-- 地图区域 -->
+                    <div class="location-map-card glass-card">
+                        <div id="location-map" class="location-map">
+                            <!-- 高精度地图将在这里加载 -->
+                            <div class="map-loading">
+                                <div class="map-loading-spinner">🗺️</div>
+                                <p data-i18n="loadingMap">正在加载地图...</p>
+                            </div>
+                        </div>
+                        <div class="map-info-bar">
+                            <span id="map-address" data-i18n="gettingAddress">正在获取地址...</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 位置详情卡片 -->
+                    <div class="location-card">
+                        <div class="location-header">
+                            <span class="location-avatar" id="my-location-avatar">👤</span>
+                            <div class="location-info">
+                                <span class="location-name" id="location-user-name" data-i18n="me">我</span>
+                                <span class="location-status" id="my-online-status" data-i18n="onlineStatus">● 在线</span>
+                            </div>
+                            <div class="location-accuracy" id="location-accuracy">
+                                <span>🎯</span>
+                                <span id="accuracy-value" data-i18n="locating">定位中...</span>
+                            </div>
+                        </div>
+                        <div class="location-details-card">
+                            <div class="location-detail-row">
+                                <span class="location-detail-icon">📍</span>
+                                <div class="location-detail-content">
+                                    <span class="location-detail-label" data-i18n="currentLocation">当前位置</span>
+                                    <span class="location-detail-value" id="location-address" data-i18n="getting">获取中...</span>
+                                </div>
+                            </div>
+                            <div class="location-detail-row">
+                                <span class="location-detail-icon">🧭</span>
+                                <div class="location-detail-content">
+                                    <span class="location-detail-label" data-i18n="coordinate">坐标</span>
+                                    <span class="location-detail-value" id="location-coords">--.-, --.-</span>
+                                </div>
+                            </div>
+                            <div class="location-detail-row">
+                                <span class="location-detail-icon">🔋</span>
+                                <div class="location-detail-content">
+                                    <span class="location-detail-label" data-i18n="battery">手机电量</span>
+                                    <span class="location-detail-value" id="location-battery">--%</span>
+                                </div>
+                            </div>
+                            <div class="location-detail-row">
+                                <span class="location-detail-icon">📶</span>
+                                <div class="location-detail-content">
+                                    <span class="location-detail-label" data-i18n="network">网络状态</span>
+                                    <span class="location-detail-value" id="location-network" data-i18n="online">在线</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- TA的位置卡片 -->
+                    <div class="location-card partner-card" id="partner-location-card">
+                        <div class="location-header">
+                            <span class="location-avatar" id="partner-location-avatar">💕</span>
+                            <div class="location-info">
+                                <span class="location-name" id="partner-location-name" data-i18n="ta">TA</span>
+                                <span class="location-status partner-status" id="partner-online-status" data-i18n="offline">○ 离线</span>
+                            </div>
+                        </div>
+                        <div id="partner-location-details" class="partner-details-empty">
+                            <p data-i18n="pairToSeeLocation">配对后可见TA的位置</p>
+                            <button class="btn-small" data-page="matching" data-i18n="goPair">去配对</button>
+                        </div>
+                    </div>
+                    
+                    <!-- Emoji互动区域 -->
+                    <div class="emoji-interaction-card glass-card">
+                        <div class="emoji-interaction-header">
+                            <h4 data-i18n="sendEmoji">💝 发送表情给TA</h4>
+                            <span class="emoji-count">今日已发送: <span id="emoji-sent-count">0</span></span>
+                        </div>
+                        <div class="emoji-quick-send">
+                            <button class="emoji-send-btn" data-emoji="💋" onclick="sendLocationEmoji('💋')">💋</button>
+                            <button class="emoji-send-btn" data-emoji="❤️" onclick="sendLocationEmoji('❤️')">❤️</button>
+                            <button class="emoji-send-btn" data-emoji="🥰" onclick="sendLocationEmoji('🥰')">🥰</button>
+                            <button class="emoji-send-btn" data-emoji="😘" onclick="sendLocationEmoji('😘')">😘</button>
+                            <button class="emoji-send-btn" data-emoji="💕" onclick="sendLocationEmoji('💕')">💕</button>
+                            <button class="emoji-send-btn" data-emoji="💗" onclick="sendLocationEmoji('💗')">💗</button>
+                            <button class="emoji-send-btn" data-emoji="🤗" onclick="sendLocationEmoji('🤗')">🤗</button>
+                            <button class="emoji-send-btn" data-emoji="👀" onclick="sendLocationEmoji('👀')">👀</button>
+                        </div>
+                        <div class="emoji-custom-send">
+                            <input type="text" id="custom-emoji-input" placeholder="发送自定义表情..." maxlength="10">
+                            <button class="btn-small" onclick="sendCustomLocationEmoji()" data-i18n="send">发送</button>
+                        </div>
+                        <div class="emoji-received-list" id="emoji-received-list">
+                            <p class="emoji-received-empty" data-i18n="receivedEmojiEmpty">收到TA的表情会显示在这里 💕</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 一起听音乐页面 -->
+            <section id="page-music" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2 data-i18n="listenTogether">一起听音乐</h2>
+                </div>
+                <div id="music-sync-container" class="music-sync-container">
+                    <!-- 音乐同步面板将在这里渲染 -->
+                </div>
+            </section>
+
+            <!-- 实时聊天页面 -->
+            <section id="page-chat-realtime" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2 data-i18n="chatWithTA">与 TA 聊天</h2>
+                    <div class="chat-actions-header">
+                        <button class="btn-small" id="btn-chat-clear" title="clearRecord" data-i18n-title="清空记录">🗑️</button>
+                    </div>
+                </div>
+                <div class="chat-container">
+                    <div class="chat-messages" id="chat-realtime-messages">
+                        <!-- 消息列表将在这里渲染 -->
+                    </div>
+                    <div id="chat-unpaired-mask" style="display:none; padding: 20px; text-align: center; background: rgba(255,255,255,0.9); border-radius: 16px; margin-top: 12px;">
+                        <p style="font-size: 16px; margin-bottom: 12px;" data-i18n="pairFirstChat">💕 先进行情侣匹配，才能开始甜蜜聊天哦</p>
+                        <button class="btn-primary" onclick="switchPage('matching')" data-i18n="goMatch">去匹配</button>
+                    </div>
+                    <div class="chat-input-area" id="chat-realtime-input-area">
+                        <div class="chat-tools">
+                            <button class="tool-btn" onclick="sendRealtimeChatImage()" title="sendImage" data-i18n-title="发送图片">📷</button>
+                            <button class="tool-btn" onclick="sendRealtimeChatLocation()" title="sendLocation" data-i18n-title="发送位置">📍</button>
+                            <button class="tool-btn" onclick="showRealtimeLinkInput()" title="sendLink" data-i18n-title="发送链接">🔗</button>
+                        </div>
+                        <textarea id="chat-realtime-input" rows="2" placeholder="说点甜甜的话..." data-i18n-placeholder="sweetWords"></textarea>
+                        <button class="chat-send-btn" id="btn-send-realtime-message" onclick="sendRealtimeChatMessage()">➤</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 统计页面 -->
+            <section id="page-stats" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2 data-i18n="annualReview">年度回顾</h2>
+                </div>
+                <div class="stats-container">
+                    <!-- 心情曲线 -->
+                    <div class="stats-card glass-card">
+                        <div class="section-header">
+                            <h3 data-i18n="moodCurve">心情曲线图</h3>
+                            <select id="annual-year-select" class="annual-select"></select>
+                        </div>
+                        <div class="chart-container">
+                            <canvas id="mood-chart"></canvas>
+                        </div>
+                    </div>
+                    <!-- 心情分布 -->
+                    <div class="stats-card glass-card">
+                        <h3 data-i18n="moodDist">心情分布</h3>
+                        <div class="chart-container pie-chart">
+                            <canvas id="mood-pie-chart"></canvas>
+                        </div>
+                        <div id="mood-stats" class="mood-stats"></div>
+                    </div>
+                    <!-- 珍贵回忆 -->
+                    <div class="stats-card glass-card">
+                        <div class="section-header">
+                            <h3 data-i18n="preciousMemories">珍贵回忆</h3>
+                            <span class="text-subtle" id="annual-memories-sub" data-i18n="autoOrganize">自动整理</span>
+                        </div>
+                        <div id="annual-memories-list" class="memories-list"></div>
+                    </div>
+                    <!-- 打卡统计 -->
+                    <div class="stats-card glass-card">
+                        <h3 data-i18n="checkinRecord">打卡记录</h3>
+                        <div class="checkin-stats">
+                            <div class="checkin-item">
+                                <span class="checkin-icon">📝</span>
+                                <div class="checkin-info">
+                                    <span class="checkin-value" id="stat-diary-count">0</span>
+                                    <span class="checkin-label">篇日记</span>
+                                </div>
+                            </div>
+                            <div class="checkin-item">
+                                <span class="checkin-icon">📅</span>
+                                <div class="checkin-info">
+                                    <span class="checkin-value" id="stat-days-count">0</span>
+                                    <span class="checkin-label" data-i18n="daysRecord">天记录</span>
+                                </div>
+                            </div>
+                            <div class="checkin-item">
+                                <span class="checkin-icon">📸</span>
+                                <div class="checkin-info">
+                                    <span class="checkin-value" id="stat-photo-count">0</span>
+                                    <span class="checkin-label" data-i18n="photos">张照片</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 恋爱时光 -->
+                    <div class="stats-card glass-card">
+                        <h3 data-i18n="loveTime">恋爱时光</h3>
+                        <div class="time-stats">
+                            <div class="time-item">
+                                <span class="time-value" id="stat-months">0</span>
+                                <span class="time-label" data-i18n="months">个月</span>
+                            </div>
+                            <div class="time-item">
+                                <span class="time-value" id="stat-weeks">0</span>
+                                <span class="time-label" data-i18n="weeks">个星期</span>
+                            </div>
+                            <div class="time-item">
+                                <span class="time-value" id="stat-hours">0</span>
+                                <span class="time-label" data-i18n="hours">个小时</span>
+                            </div>
+                            <div class="time-item">
+                                <span class="time-value" id="stat-minutes">0</span>
+                                <span class="time-label" data-i18n="minutes">分钟</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 生日祝福特效 -->
+                    <div class="stats-card glass-card">
+                        <h3 data-i18n="sweetEasterEgg">甜蜜彩蛋</h3>
+                        <p class="stats-subtitle" data-i18n="surpriseAfterReview">看完年度回顾，来点惊喜吧 💕</p>
+                        <button class="btn-birthday-effect" id="btn-birthday-effect" data-i18n="playBlessing">🎂 播放祝福特效</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- 设置页面 -->
+            <section id="page-settings" class="page">
+                <div class="page-header">
+                    <button class="btn-back" data-back="home" data-i18n="back">←</button>
+                    <h2 data-i18n="settings">设置</h2>
+                </div>
+                <div class="settings-container">
+                    <div class="settings-group">
+                        <h3 data-i18n="coupleInfo">情侣信息</h3>
+                        <div class="setting-item">
+                            <span data-i18n="yourName2">你的名字</span>
+                            <input type="text" id="setting-name1" class="setting-input">
+                        </div>
+                        <div class="setting-item">
+                            <span data-i18n="partnerName2">伴侣名字</span>
+                            <input type="text" id="setting-name2" class="setting-input">
+                        </div>
+                        <div class="setting-item">
+                            <span data-i18n="startDate2">恋爱开始日期</span>
+                            <input type="date" id="setting-date" class="setting-input">
+                        </div>
+                        <div class="setting-item">
+                            <span data-i18n="avatarUpload">头像上传（显示在顶部）</span>
+                            <input type="file" id="avatar-upload-input" accept="image/*" class="setting-input">
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <h3 data-i18n="language">语言</h3>
+                        <div class="setting-item">
+                            <span data-i18n="language">语言</span>
+                            <select id="language-select" class="setting-input">
+                                <option value="zh-CN" data-i18n="simplifiedChinese">简体中文</option>
+                                <option value="zh-TW" data-i18n="traditionalChinese">繁體中文</option>
+                                <option value="en" data-i18n="english">English</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <h3 data-i18n="themeSettings">
+                            <svg class="icon icon-md" style="display:inline;vertical-align:middle;margin-right:6px;color:var(--primary-color)"><use href="#ico-settings"></use></svg>
+                            主题设置
+                        </h3>
+                        <div class="setting-item" style="display:flex;align-items:center;justify-content:space-between;">
+                            <span>深色模式</span>
+                            <label class="toggle-switch" style="position:relative;display:inline-block;width:48px;height:26px;cursor:pointer;">
+                                <input type="checkbox" id="dark-mode-toggle" style="opacity:0;width:0;height:0;position:absolute;">
+                                <span class="toggle-slider" style="position:absolute;inset:0;background:rgba(255,255,255,0.1);border-radius:13px;transition:all 0.3s ease;border:1px solid rgba(255,255,255,0.1);"></span>
+                                <span class="toggle-knob" style="position:absolute;top:3px;left:3px;width:20px;height:20px;background:white;border-radius:50%;transition:all 0.3s ease;box-shadow:0 1px 4px rgba(0,0,0,0.2);display:flex;align-items:center;justify-content:center;">
+                                    <svg class="icon icon-sm" style="width:12px;height:12px;color:#aaa;position:absolute;"><use href="#icon-moon"></use></svg>
+                                </span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <span data-i18n="themeColor">主题配色</span>
+                        </div>
+                        <div class="theme-color-picker">
+                            <div class="theme-color-option selected" data-theme="pink" data-primary="#FF8FB1" data-secondary="#B76E9F">
+                                <div class="color-preview" style="background: linear-gradient(135deg, #FF8FB1, #B76E9F);"></div>
+                                <span>樱花粉</span>
+                            </div>
+                            <div class="theme-color-option" data-theme="sunset" data-primary="#FF6B6B" data-secondary="#FF8E53">
+                                <div class="color-preview" style="background: linear-gradient(135deg, #FF6B6B, #FF8E53);"></div>
+                                <span>落日橙</span>
+                            </div>
+                            <div class="theme-color-option" data-theme="ocean" data-primary="#4ECDC4" data-secondary="#44A08D">
+                                <div class="color-preview" style="background: linear-gradient(135deg, #4ECDC4, #44A08D);"></div>
+                                <span>海洋蓝</span>
+                            </div>
+                            <div class="theme-color-option" data-theme="lavender" data-theme="lavender" data-primary="#A18CD1" data-secondary="#FBC2EB">
+                                <div class="color-preview" style="background: linear-gradient(135deg, #A18CD1, #FBC2EB);"></div>
+                                <span>薰衣草</span>
+                            </div>
+                            <div class="theme-color-option" data-theme="mint" data-primary="#A8E6CF" data-secondary="#88D8B0">
+                                <div class="color-preview" style="background: linear-gradient(135deg, #A8E6CF, #88D8B0);"></div>
+                                <span>薄荷绿</span>
+                            </div>
+                            <div class="theme-color-option" data-theme="peach" data-primary="#FFB7C5" data-secondary="#FFF0F5">
+                                <div class="color-preview" style="background: linear-gradient(135deg, #FFB7C5, #FFF0F5);"></div>
+                                <span>蜜桃粉</span>
+                            </div>
+                            <div class="theme-color-option" data-theme="starry" data-primary="#667EEA" data-secondary="#764BA2">
+                                <div class="color-preview" style="background: linear-gradient(135deg, #667EEA, #764BA2);"></div>
+                                <span>星空紫</span>
+                            </div>
+                            <div class="theme-color-option" data-theme="honey" data-primary="#F6D365" data-secondary="#FDA085">
+                                <div class="color-preview" style="background: linear-gradient(135deg, #F6D365, #FDA085);"></div>
+                                <span>蜂蜜橙</span>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-item" style="margin-top:16px;">
+                            <span data-i18n="bgPattern">背景图案 (图案类)</span>
+                        </div>
+                        <div class="bg-pattern-picker">
+                            <div class="bg-pattern-option selected" data-pattern="none" style="background: linear-gradient(135deg, var(--primary-light), var(--primary-color));">
+                                <span data-i18n="solidColor">纯色</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="hearts" style="background: linear-gradient(135deg, #FFE4EC, #FFC4D6);">
+                                <span>💕</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="stars" style="background: linear-gradient(135deg, #1a1a2e, #16213e);">
+                                <span style="color:#fff">✨</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="sakura" style="background: linear-gradient(135deg, #FFE4E6, #FFF0F5);">
+                                <span>🌸</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="clouds" style="background: linear-gradient(180deg, #87CEEB, #E0F6FF);">
+                                <span>☁️</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="aurora" style="background: linear-gradient(135deg, #0F2027, #203A43, #2C5364);">
+                                <span style="color:#fff">🌌</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="rainbow" style="background: linear-gradient(90deg, #FF6B6B, #FFB347, #FFFF66, #88D8B0, #6FA8DC, #9B59B6);">
+                                <span style="color:#fff">🌈</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="bubbles" style="background: linear-gradient(180deg, #E8F4F8, #D4E6ED);">
+                                <span>🫧</span>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-item" style="margin-top:16px;">
+                            <span data-i18n="gradientBg">渐变背景 (20款)</span>
+                        </div>
+                        <div class="bg-pattern-picker" style="grid-template-columns: repeat(5, 1fr);">
+                            <div class="bg-pattern-option" data-pattern="gradient-peach" style="background: linear-gradient(135deg, #FFECD2, #FCB69F, #FF9A9E);">
+                                <span>🍑</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="gradient-lavender" style="background: linear-gradient(135deg, #E8D5B7, #B8A9C9, #D4A5A5);">
+                                <span>💜</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="gradient-mint" style="background: linear-gradient(135deg, #A8E6CF, #88D8B0, #7FDBDA);">
+                                <span>🌿</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="gradient-sunset" style="background: linear-gradient(135deg, #FF6B6B, #FF8E53, #FFB347);">
+                                <span>🌅</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="gradient-ocean" style="background: linear-gradient(135deg, #4ECDC4, #556270, #2C3E50);">
+                                <span style="color:#fff">🌊</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="gradient-forest" style="background: linear-gradient(135deg, #134E5E, #71B280, #95C685);">
+                                <span style="color:#fff">🌲</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="gradient-starry" style="background: linear-gradient(135deg, #667EEA, #764BA2, #F093FB);">
+                                <span>💫</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="gradient-honey" style="background: linear-gradient(135deg, #F6D365, #FDA085, #FAD0C4);">
+                                <span>🍯</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="gradient-twilight" style="background: linear-gradient(135deg, #2C3E50, #4CA1AF, #C4E0E5);">
+                                <span style="color:#fff">🌄</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="gradient-coral" style="background: linear-gradient(135deg, #FF6B6B, #FFA07A, #FFDAB9);">
+                                <span>🪸</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="gradient-vine" style="background: linear-gradient(135deg, #11998E, #38EF7D, #D4FC79);">
+                                <span>🌱</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="gradient-wine" style="background: linear-gradient(135deg, #834d9b, #d04ed6, #ffecd2);">
+                                <span>🍷</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="gradient-lemon" style="background: linear-gradient(135deg, #f5af19, #f12711, #f5af19);">
+                                <span>🍋</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="gradient-sky" style="background: linear-gradient(135deg, #6DD5FA, #2980B9, #2C3E50);">
+                                <span style="color:#fff">☀️</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="gradient-sakura-rain" style="background: linear-gradient(135deg, #FFB7C5, #F4F4F4, #FFCCD5);">
+                                <span>🌸</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="gradient-chocolate" style="background: linear-gradient(135deg, #D7D2CC, #304352, #1C2833);">
+                                <span style="color:#fff">🍫</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="gradient-candy" style="background: linear-gradient(135deg, #FFecd2, #fcb69f, #ff9a9e);">
+                                <span>🍬</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="gradient-volcano" style="background: linear-gradient(135deg, #3a1c71, #d76d77, #ffaf7b);">
+                                <span>🌋</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="gradient-emerald" style="background: linear-gradient(135deg, #348F50, #56B4D3, #92D5E8);">
+                                <span>💎</span>
+                            </div>
+                            <div class="bg-pattern-option" data-pattern="gradient-rose" style="background: linear-gradient(135deg, #f4c4f3, #fd67b4, #ff6b9d);">
+                                <span>🌹</span>
+                            </div>
+                        </div>
+                        
+                        <div class="setting-item" style="margin-top:16px;">
+                            <span data-i18n="customBg">自定义背景</span>
+                            <label class="upload-bg-btn">
+                                📷 上传图片
+                                <input type="file" id="custom-bg-input" accept="image/*" hidden>
+                            </label>
+                        </div>
+                        <div id="custom-bg-preview" class="custom-bg-preview"></div>
+                        
+                        <div class="setting-item">
+                            <span data-i18n="bgAnimation">背景动画</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="bg-animation-toggle" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item">
+                            <span data-i18n="bgMusic">背景音乐</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="music-toggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <h3 data-i18n="effectSettings">🎊 特效设置</h3>
+                        <div class="setting-item">
+                            <span data-i18n="blessingStyle">祝福特效样式</span>
+                            <select id="blessing-template" class="setting-input">
+                                <option value="classic">经典（心形→汇聚→顺序→随机弹窗）</option>
+                                <option value="stacked_fullscreen">满屏叠层（依次叠满屏，再一起消失）</option>
+                                <option value="minimal_heart">轻量（仅心形+汇聚）</option>
+                                <option value="confetti">彩带礼花</option>
+                                <option value="fireworks">烟花绽放</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <span data-i18n="homeFalling">首页飘落特效</span>
+                            <select id="fall-effect" class="setting-input" onchange="setFallingEffect(this.value)">
+                                <option value="hearts">爱心飘落</option>
+                                <option value="petals">花瓣飘落</option>
+                                <option value="stars">星星闪烁</option>
+                                <option value="snow">雪花飘落</option>
+                                <option value="none">关闭</option>
+                            </select>
+                        </div>
+                        <div class="setting-item">
+                            <span data-i18n="autoHoliday">自动节日主题</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="auto-holiday-toggle" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="setting-item" style="display:flex;align-items:center;justify-content:space-between;">
+                            <span data-i18n="anniversaryReminder">纪念日提醒</span>
+                            <label class="toggle-switch">
+                                <input type="checkbox" id="notification-toggle">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <h3 data-i18n="privacySecurity">🔒 隐私与安全</h3>
+                        <p class="settings-hint" data-i18n="privacyHint">保护你的私密日记和聊天记录。</p>
+                        <div class="setting-item" style="display:flex;align-items:center;justify-content:space-between;">
+                            <span data-i18n="pinLock">应用锁（PIN 码）</span>
+                            <label class="toggle-switch" style="position:relative;display:inline-block;width:48px;height:26px;cursor:pointer;">
+                                <input type="checkbox" id="pin-lock-toggle" style="opacity:0;width:0;height:0;position:absolute;">
+                                <span class="toggle-slider" style="position:absolute;inset:0;background:rgba(255,255,255,0.1);border-radius:13px;transition:all 0.3s ease;border:1px solid rgba(255,255,255,0.1);"></span>
+                                <span class="toggle-knob" style="position:absolute;top:3px;left:3px;width:20px;height:20px;background:white;border-radius:50%;transition:all 0.3s ease;box-shadow:0 1px 4px rgba(0,0,0,0.2);"></span>
+                            </label>
+                        </div>
+                        <div id="pin-setup-row" class="setting-item" style="display:none;align-items:center;justify-content:space-between;">
+                            <span data-i18n="changePin">修改 PIN 码</span>
+                            <button class="setting-btn" style="padding:6px 14px;font-size:12px;" id="btn-change-pin" data-i18n="changePin">修改</button>
+                        </div>
+                        <div class="setting-item" style="display:flex;align-items:center;justify-content:space-between;">
+                            <span>生物识别解锁</span>
+                            <label class="toggle-switch" style="position:relative;display:inline-block;width:48px;height:26px;cursor:pointer;">
+                                <input type="checkbox" id="biometric-toggle" style="opacity:0;width:0;height:0;position:absolute;" disabled>
+                                <span class="toggle-slider" style="position:absolute;inset:0;background:rgba(255,255,255,0.1);border-radius:13px;transition:all 0.3s ease;border:1px solid rgba(255,255,255,0.1);"></span>
+                                <span class="toggle-knob" style="position:absolute;top:3px;left:3px;width:20px;height:20px;background:white;border-radius:50%;transition:all 0.3s ease;box-shadow:0 1px 4px rgba(0,0,0,0.2);"></span>
+                            </label>
+                            <span class="settings-hint" style="font-size:11px;opacity:0.6;" data-i18n="biometricHint">iOS Safari 支持 Face ID / Touch ID</span>
+                        </div>
+                        <div class="setting-item">
+                            <details class="privacy-notice">
+                                <summary style="cursor:pointer;font-weight:600;" data-i18n="privacyPolicy">隐私声明</summary>
+                                <div style="margin-top:10px;font-size:13px;line-height:1.7;color:var(--text-light);">
+                                    <p data-i18n="privacyP1">📱 所有数据均保存在本设备本地浏览器中（localStorage），不会上传至任何服务器。</p>
+                                    <p data-i18n="privacyP2">🔒 你可以设置 PIN 码锁定应用，防止他人偷看。</p>
+                                    <p data-i18n="privacyP3">💾 请定期使用「导出备份」功能备份数据，换设备或清除浏览器数据前请先备份。</p>
+                                    <p data-i18n="privacyP4">🗑️「清除所有数据」将永久删除本地所有日记、聊天、照片等，不可恢复。</p>
+                                    <p data-i18n="privacyP5">🌐 使用 AI 祝福功能时，对话内容会发送至你配置的 LM Studio 本地服务器，不会经过第三方。</p>
+                                </div>
+                            </details>
+                        </div>
+                    </div>
+                    <div class="settings-group">
+                        <h3 data-i18n="dataManagement">数据管理（本地存储）</h3>
+                        <p class="settings-hint" data-i18n="dataHint">数据保存在本机浏览器；请定期用 JSON 或 ZIP 备份，换设备时可导入恢复。</p>
+                        <button class="setting-btn" id="btn-export-data" data-i18n="exportBackup">📤 导出完整备份（JSON）</button>
+                        <button class="setting-btn" id="btn-export-txt" data-i18n="exportTxt">📄 导出日记（TXT）</button>
+                        <button class="setting-btn" id="btn-export-html" data-i18n="exportHtml">🌐 导出日记（HTML）</button>
+                        <button class="setting-btn" id="btn-export-zip" data-i18n="exportZip">🗜️ 导出压缩包（ZIP）</button>
+                        <button class="setting-btn" id="btn-import-data" data-i18n="importBackup">📥 导入备份（JSON）</button>
+                        <button class="setting-btn danger" id="btn-clear-data" data-i18n="clearAllData">🗑️ 清除所有数据</button>
+                    </div>
+                    <div class="settings-footer">
+                        <p data-i18n="version">恋爱日记 v1.0</p>
+                        <p class="copyright" data-i18n="madeWith">Made with 💕</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- 桌面右侧：更多快捷入口 -->
+        <aside class="desktop-sidebar-right glass-card hidden-on-mobile" id="desktop-sidebar-right" aria-label="快捷功能">
+            <div class="right-rail-title" data-i18n="more">更多</div>
+            <button type="button" class="right-rail-btn" data-page="summary" title="annualSummary" data-i18n-title="年度总结">🎆<span data-i18n="summary">总结</span></button>
+            <button type="button" class="right-rail-btn" data-page="stats" title="stats" data-i18n-title="统计">📊<span data-i18n="stats">统计</span></button>
+            <button type="button" class="right-rail-btn" data-page="diary" title="diary" data-i18n-title="日记">📝<span data-i18n="diary">日记</span></button>
+            <button type="button" class="right-rail-btn" data-page="anniversary" title="anniversary" data-i18n-title="纪念日">🎉<span data-i18n="memorial">纪念</span></button>
+            <button type="button" class="right-rail-btn" data-page="chat-realtime" title="chat" data-i18n-title="聊天">💬<span data-i18n="chat">聊天</span></button>
+            <button type="button" class="right-rail-btn" data-page="settings" title="settings" data-i18n-title="设置">⚙️<span data-i18n="settings">设置</span></button>
+        </aside>
+
+        <!-- 返回首页悬浮按钮 -->
+        <button class="go-home-btn" id="go-home-btn" onclick="switchPage('home')" title="backHome" data-i18n-title="返回首页">
+            🏠
+        </button>
+        
+        <!-- 底部导航 -->
+        <nav class="bottom-nav" aria-label="主导航">
+            <button class="nav-item active" data-page="home" aria-label="首页">
+                <span class="nav-icon" aria-hidden="true">🏠</span>
+                <span class="nav-label" data-i18n="home">首页</span>
+            </button>
+            <button class="nav-item" data-page="chat-realtime" aria-label="聊天">
+                <span class="nav-icon" aria-hidden="true">💬</span>
+                <span class="nav-label" data-i18n="chat">聊天</span>
+            </button>
+            <button class="nav-item" data-page="quiz" aria-label="游戏">
+                <span class="nav-icon" aria-hidden="true">🎮</span>
+                <span class="nav-label" data-i18n="game">游戏</span>
+            </button>
+            <button class="nav-item" data-page="photo" aria-label="相册">
+                <span class="nav-icon" aria-hidden="true">📸</span>
+                <span class="nav-label" data-i18n="photo">相册</span>
+            </button>
+            <button class="nav-item" data-page="bill" aria-label="账单">
+                <span class="nav-icon" aria-hidden="true">💰</span>
+                <span class="nav-label" data-i18n="bill">账单</span>
+            </button>
+            <button class="nav-item" data-page="wishes" aria-label="愿望清单">
+                <span class="nav-icon" aria-hidden="true">⭐</span>
+                <span class="nav-label" data-i18n="wish">愿望</span>
+            </button>
+            <button class="nav-item" data-page="settings" aria-label="设置">
+                <span class="nav-icon" aria-hidden="true">⚙️</span>
+                <span class="nav-label" data-i18n="settings">设置</span>
+            </button>
+        </nav>
+    </div>
+
+    <!-- 图片预览模态框 -->
+    <div id="image-modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close">&times;</button>
+            <img id="modal-image" src="" alt="预览">
+        </div>
+    </div>
+
+    <!-- 二维码扫描器模态框 -->
+    <div id="scanner-modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content scanner-modal-content">
+            <button class="modal-close" onclick="closeScanner()">&times;</button>
+            <h4 data-i18n="scanQR">扫描对方二维码</h4>
+            <div class="scanner-container">
+                <video id="scanner-video" autoplay playsinline></video>
+                <canvas id="scanner-canvas" style="display:none;"></canvas>
+                <div class="scanner-frame"></div>
+            </div>
+            <p class="scanner-hint" data-i18n="putQRInFrame">将二维码放入框内即可自动扫描</p>
+        </div>
+    </div>
+
+    <!-- 配对成功提示模态框 -->
+    <div id="pairing-success-modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content small pairing-success-modal">
+            <div class="pairing-success-icon">💕</div>
+            <h4 id="pairing-success-title" data-i18n="pairSuccess">配对成功</h4>
+            <p id="pairing-success-message" data-i18n="pairSuccessDesc">与 TA 配对成功</p>
+            <div class="modal-actions">
+                <button class="btn-primary" onclick="closePairingSuccessModal()" data-i18n="startSweetJourney">开始甜蜜之旅</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 确认对话框 -->
+    <div id="confirm-modal" class="modal hidden">
+        <div class="modal-overlay"></div>
+        <div class="modal-content small">
+            <h4 id="confirm-title" data-i18n="confirm">确认</h4>
+            <p id="confirm-message">...</p>
+            <div class="modal-actions">
+                <button class="btn-secondary" id="confirm-cancel" data-i18n="cancel">取消</button>
+                <button class="btn-primary" id="confirm-ok" data-i18n="ok">确定</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast 提示 -->
+    <div id="toast" class="toast hidden">
+        <span id="toast-icon">✅</span>
+        <span id="toast-message">...</span>
+    </div>
+
+    <!-- 隐藏的文件输入 -->
+    <input type="file" id="import-file-input" accept=".json,.txt,application/json" hidden>
+
+    <!-- QRCode 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jsqr@1.4.0/dist/jsQR.min.js"></script>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/chart.js"></script>
+    <script src="js/diary.js"></script>
+    <script src="js/anniversary.js"></script>
+    <script src="js/daily-qa.js"></script>
+    <script src="js/challenge-100.js"></script>
+    <script src="js/widget.js"></script>
+    <script src="js/pwa.js"></script>
+    <script src="js/birthday-effect.js"></script>
+    <script src="js/matching.js"></script>
+    <script src="js/couple-calendar.js"></script>
+    <script src="js/daily-plan.js"></script>
+    <script src="js/activity-report.js"></script>
+    <script src="js/location.js"></script>
+    <script src="js/music-sync.js"></script>
+    <script src="js/album.js"></script>
+    <script src="js/pet.js"></script>
+    <script src="js/decorate.js"></script>
+    <script src="js/mood-room.js"></script>
+    <script src="js/couple-task.js"></script>
+    <script src="js/kiss.js"></script>
+    <script src="js/crypto.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
