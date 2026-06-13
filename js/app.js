@@ -403,9 +403,12 @@ function showMainApp() {
             startBackgroundMusic();
         } else {
             // 等待首次交互后再播放
+            // Safari 需要延迟 150ms 再播放，让浏览器认定这是有效的用户手势
             const tryAutoPlay = () => {
                 document.body.dataset.userInteracted = 'true';
-                if (loadJson(LOVE_SETTINGS_KEY, {}).musicOn) startBackgroundMusic();
+                if (loadJson(LOVE_SETTINGS_KEY, {}).musicOn) {
+                    setTimeout(() => startBackgroundMusic(), 150);
+                }
                 ['click', 'touchstart', 'keydown'].forEach(evt => document.removeEventListener(evt, tryAutoPlay));
             };
             ['click', 'touchstart', 'keydown'].forEach(evt => document.addEventListener(evt, tryAutoPlay, { once: true }));
@@ -3176,11 +3179,10 @@ function playTrack(idx) {
     if (icon) icon.textContent = '🎵';
 
     bgMusicState.audio.play().catch(err => {
-        if (err.name === 'NotAllowedError') {
+        if (err.name === 'NotAllowedError' || err.name === 'AbortError') {
             bgMusicState.autoPlayBlocked = true;
             bgMusicState.isPlaying = false;
             updateMusicBtnUI();
-            // 静默处理，等待用户交互后手动播放
         } else {
             showToast(t('playFailed'), '⚠️');
             console.warn('Audio play error:', err);
@@ -3208,7 +3210,10 @@ function togglePlayPause() {
         btn?.classList.add('paused');
         if (icon) icon.textContent = '🎶';
     } else {
-        bgMusicState.audio.play().catch(() => {});
+        bgMusicState.audio.play().catch(err => {
+            bgMusicState.isPlaying = false;
+            updateMusicBtnUI();
+        });
         bgMusicState.isPlaying = true;
         btn?.classList.add('playing');
         btn?.classList.remove('paused');
@@ -3222,9 +3227,13 @@ function toggleBackgroundMusic(on) {
     localStorage.setItem(LOVE_SETTINGS_KEY, JSON.stringify(settings));
     try {
         if (on) {
-            if (!bgMusicState.audio || !bgMusicState.audio.src) playTrack(0);
-            else bgMusicState.audio.play().catch(() => {});
-            bgMusicState.isPlaying = true;
+            if (!bgMusicState.audio || !bgMusicState.audio.src) {
+                // Safari 延迟播放以符合自动播放策略
+                setTimeout(() => playTrack(0), 150);
+            } else {
+                bgMusicState.audio.play().catch(() => {});
+                bgMusicState.isPlaying = true;
+            }
         } else {
             bgMusicState.audio?.pause();
             bgMusicState.isPlaying = false;
