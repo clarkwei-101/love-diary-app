@@ -3011,9 +3011,10 @@ function t(key, replacements) {
 }
 
 function applyI18n(root = document) {
+    if (!root || typeof root.querySelectorAll !== 'function') return;
     const locale = getLocale();
     document.documentElement.lang = locale === 'zh-TW' ? 'zh-Hant' : (locale === 'en' ? 'en' : 'zh-Hans');
-    
+
     root.querySelectorAll('[data-i18n]').forEach(el => {
         const key = el.dataset.i18n;
         const attr = el.dataset.i18nAttr;
