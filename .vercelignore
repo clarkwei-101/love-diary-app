@@ -4,11 +4,7 @@ node_modules/
 *.bak
 *.swp
 *.swo
-audio/*.mp3
-audio/*.wav
-audio/*.ogg
-audio/*.m4a
-audio/*.aac
+audio/*.txt
 www/
 ios/
 android/
