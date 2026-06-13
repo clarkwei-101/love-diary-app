@@ -3035,9 +3035,9 @@ function attachBgAudioHandlers() {
     bgMusicState.audio.addEventListener('error', () => {
         const tracks = getAllMusicTracks();
         const idx = bgMusicState.currentIndex;
-        const t = tracks[idx];
-        console.warn(`[${t('t_95521b')}] ${t('t_0c2142')}`, t?.name, t?.src);
-        showToast(`Unable to play 「${t?.name || 'Track'}」, trying next`, '⚠️');
+        const track = tracks[idx];
+        console.warn(`[${t('t_95521b')}] ${t('t_0c2142')}`, track?.name, track?.src);
+        showToast(`Unable to play 「${track?.name || 'Track'}」, trying next`, '⚠️');
         if (tracks.length <= 1) return;
         const nextIdx = (idx + 1) % tracks.length;
         setTimeout(() => playTrack(nextIdx), 400);
